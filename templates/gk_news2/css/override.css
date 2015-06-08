@@ -1,0 +1,33 @@
+/*
+#------------------------------------------------------------------------
+# News II - February Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2013 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+
+/* Here you can include your override CSS styles */
+
+/* mycity K2 template --------------------------------------------------------------------------------------*/
+#k2Container.itemView.mycity{
+
+}
+/* End of mycity K2 template -------------------------------------------------------------------------------*/
+
+/* Extra fields --------------------------------------------------------------------------------------------*/
+.alias-tripadvisorembed>.itemExtraFieldsLabel{
+    display:none;
+}
+/* End of Extra fields -------------------------------------------------------------------------------------*/
+
+/* Core fields --------------------------------------------------------------------------------------------*/
+.itemVideoBlock h3 {
+    display:none;
+}
+.itemVideoBlock{
+    margin:20px 0;
+}
+
+/* End of Core fields -------------------------------------------------------------------------------------*/
