@@ -9,6 +9,6 @@ jQuery(document).ready(function() {
 });
 
 jQuery(window).scroll(function() {
-        jQuery('#gkLogoSmall>img').attr('src','images/logo/logo-fixedMenu.png');
+        jQuery('#gkLogoSmall>img').attr('src','http://www.spoudazo.gr/images/logo/logo-fixedMenu.png');
 
 });
