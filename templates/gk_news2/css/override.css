@@ -38,6 +38,13 @@
     width:auto!important;
     max-width:650px;
 }
+ul.sigFreeClassic {
+  text-align: center;
+}
+ul.sigFreeClassic li.sigFreeThumb {
+  display: inline-block;
+  float:none;
+}
 
 /* Reponsive embed container -------------------------------------------------------------------------------------*/
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }

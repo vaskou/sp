@@ -173,18 +173,6 @@ if(
                     </div>
                     <?php endif; ?>
                     
-					<?php if ($addressField && trim ( $addressField->value )!='' ) : ?>
-
-					<div class="address_field embed-container">
-						<iframe
-						  width="600"
-						  height="450"
-						  frameborder="0" style="border:0"
-						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGMxeMcTmXMoV-ck4otVAY88TmnvvRxrI&q=<?php echo trim ( $addressField->value );?>">
-						</iframe>
-					</div>
-					<?php endif;?>
-					
 					<?php if($params->get('itemVideo') && !empty($this->item->video)): ?>
                     <div class="itemVideoBlock" id="itemVideoAnchor" style="text-align:left">
                               <h3><?php echo JText::_('VIDEO'); ?></h3>
@@ -202,6 +190,19 @@ if(
                     </div>
                     <?php endif; ?>
 
+					<?php if ($addressField && trim ( $addressField->value )!='' ) : ?>
+
+					<div class="address_field embed-container">
+						<iframe
+						  width="600"
+						  height="450"
+						  frameborder="0" style="border:0"
+						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGMxeMcTmXMoV-ck4otVAY88TmnvvRxrI&q=<?php echo trim ( $addressField->value );?>">
+						</iframe>
+					</div>
+					<?php endif;?>
+					
+					
 					<?php if ($iframeurlField) : ?>
 					<div class="iframeurl_field fieldContainer">
 						<iframe style="border:0; width:100%;max-width: 100%; height:600px" src="<?php echo $iframeurlField->value; ?>"></iframe>
