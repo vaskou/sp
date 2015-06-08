@@ -14,13 +14,11 @@
 #k2Container.itemView.mycity{
 
 }
-/* End of mycity K2 template -------------------------------------------------------------------------------*/
 
 /* Extra fields --------------------------------------------------------------------------------------------*/
 .alias-tripadvisorembed>.itemExtraFieldsLabel{
     display:none;
 }
-/* End of Extra fields -------------------------------------------------------------------------------------*/
 
 /* Core fields --------------------------------------------------------------------------------------------*/
 .itemVideoBlock h3 {
@@ -30,7 +28,21 @@
     margin:20px 0;
 }
 
-/* End of Core fields -------------------------------------------------------------------------------------*/
-
+/* Reponsive embed container -------------------------------------------------------------------------------------*/
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* Menu -------------------------------------------------------------------------------------------------------*/
+#gkFixedMenu {
+  top: -90px;
+}
+
+/* Logo -------------------------------------------------------------------------------------------------------*/
+#gkLogoSmall {
+  width: 200px;
+}
+#gkLogo {
+  height: 80px;
+  margin: 5px 0 5px 0;
+}
+
