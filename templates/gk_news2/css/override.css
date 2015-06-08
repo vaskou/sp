@@ -16,6 +16,12 @@
 }
 
 /* Extra fields --------------------------------------------------------------------------------------------*/
+.fieldContainer{
+    border: 1px solid #E5E5E5;
+    margin: 20px 0 20px;
+    padding: 12px 12px;    
+}
+
 .alias-tripadvisorembed>.itemExtraFieldsLabel{
     display:none;
 }
@@ -26,6 +32,11 @@
 }
 .itemVideoBlock{
     margin:20px 0;
+}
+
+.avVideo .avPlayerContainer {
+    width:auto!important;
+    max-width:650px;
 }
 
 /* Reponsive embed container -------------------------------------------------------------------------------------*/
