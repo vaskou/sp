@@ -146,7 +146,6 @@ if(
 
  
                     <?php if($params->get('itemExtraFields') && count($this->item->extra_fields)): ?>
-					<?php $iframeurlField = null ; ?>
                     <div class="itemExtraFields">
 							<ul>
 							<?php foreach ($this->item->extra_fields as $key=>$extraField): ?>
@@ -156,13 +155,16 @@ if(
 									  <?php if($extraField->type == 'header'): ?>
 									  <h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
 									  <?php else: ?>
-										<?php if($extraField->alias != 'iframeurl'): ?>
-											 <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
-										<?php endif; ?>
-										<?php if($extraField->alias == 'iframeurl'): ?>
-											 <?php $iframeurlField = $extraField ;?>
-											 <?php continue;?>
-										<?php endif; ?>
+											<?php if($extraField->alias != 'iframeurl'): ?>
+												 <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
+											<?php endif; ?>
+											<?php if($extraField->alias == 'iframeurl'): ?>
+												 <?php $iframeurlField = $extraField ;?>
+												 <?php continue;?>
+											<?php endif; ?>
+											<?php if($extraField->alias == 'address'): ?>
+												 <?php $addressField = $extraField ;?>
+											<?php endif; ?>
 										<?php endif; ?>
 							</li>
 							<?php endif; ?>
@@ -171,6 +173,18 @@ if(
                     </div>
                     <?php endif; ?>
                     
+					<?php if ($addressField && trim ( $addressField->value )!='' ) : ?>
+
+					<div class="address_field embed-container">
+						<iframe
+						  width="600"
+						  height="450"
+						  frameborder="0" style="border:0"
+						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGMxeMcTmXMoV-ck4otVAY88TmnvvRxrI&q=<?php echo trim ( $addressField->value );?>">
+						</iframe>
+					</div>
+					<?php endif;?>
+					
 					<?php if($params->get('itemVideo') && !empty($this->item->video)): ?>
                     <div class="itemVideoBlock" id="itemVideoAnchor" style="text-align:left">
                               <h3><?php echo JText::_('VIDEO'); ?></h3>
