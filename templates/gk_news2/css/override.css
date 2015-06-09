@@ -96,9 +96,47 @@ ul.sigFreeClassic li.sigFreeThumb {
 
 }
 
+/* Highlighter -------------------------------------------------------------------------------------------------------*/
+.gkHighlighterInterface span.text {
+  margin: 0 0 0 15px;
+}
+.gkHighlighterItem > span > a{
+    max-width:250px!important;
+    width:250px!important;
+    overflow:hidden!important;
+}
+
+.gkHighlighterWrapper {
+  width: 360px;
+
+}
+
+/* gkUpdates ------------------------------------------------------------------------------------------------------*/
+#gkUpdates {
+    padding:0 5px;
+    text-align:center;
+}
+#gkUpdates p{
+    margin:0;
+}
+
 /* Banners -------------------------------------------------------------------------------------------------------*/
 div.banneritem {
   border: 0;
   padding: 0;
 }
 
+/* Sentoni ------------------------------------------------------------------------------------------------------*/
+.sentoni {
+    position: fixed;
+    top: 120px;
+}
+.sentoni.left{
+    right: 50%;
+    margin-right:500px;
+}
+
+.sentoni.right{
+    left: 50%;
+    margin-left:500px;
+}
