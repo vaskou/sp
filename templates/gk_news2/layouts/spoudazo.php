@@ -50,7 +50,7 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
 		<meta name="viewport" content="width=<?php echo $this->API->get('template_width', 1020)+80; ?>">
 	<?php endif; ?>
     <jdoc:include type="head" />
-    <?php $this->layout->loadBlock('head'); ?>
+    <?php $this->layout->loadBlock('head-spoudazo'); ?>
 	<?php $this->layout->loadBlock('cookielaw'); ?>
 </head>
 <body<?php echo $tpl_page_suffix; ?><?php if($this->browser->get("tablet") == true) echo ' data-tablet="true"'; ?><?php if($this->browser->get("mobile") == true) echo ' data-mobile="true"'; ?><?php $this->layout->generateLayoutWidths(); ?> data-smoothscroll="<?php echo $this->API->get('use_smoothscroll', '1'); ?>">	
@@ -271,7 +271,15 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
     	</div>
     </section>
     <?php endif; ?>
-    
+ 
+     <?php if($this->API->modules('weather')) : ?>
+    <section id="gkWeather" class="gkPage">
+    	<div class="gkCols6<?php if($this->API->modules('weather') > 1) : ?> gkNoMargin<?php endif; ?>">
+    		<jdoc:include type="modules" name="weather" style="<?php echo $this->module_styles['weather']; ?>" modnum="<?php echo $this->API->modules('weather'); ?>" />
+    	</div>
+    </section>
+    <?php endif; ?>
+	
     <?php if($this->API->modules('lang')) : ?>
     <section id="gkLang">
     	<div class="gkPage">

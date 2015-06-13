@@ -125,6 +125,7 @@
                   <position>sentonileft</position>
                   <position>sentoniright</position>
                   <position>helloguest</position>
+                  <position>weather</position>
 		  
 		  </positions>
         <languages folder="language">

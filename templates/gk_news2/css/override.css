@@ -124,7 +124,31 @@ ul.sigFreeClassic li.sigFreeThumb {
 div.banneritem {
   border: 0;
   padding: 0;
+  text-align:center;
 }
+
+div.banneritem img{
+    vertical-align: top;
+}
+
+#gkBannerLeft,
+#gkBannerRight{
+    min-height:0!important;
+
+}
+#gkBannerLeft .box {
+
+  padding:0!important;
+}
+
+#gkBannerRight .box {
+
+  padding:0!important;
+}
+#gkBannerLeft + #gkBannerRight {
+  border-left: 0;
+}
+
 
 /* Sentoni ------------------------------------------------------------------------------------------------------*/
 .sentoni {
@@ -140,3 +164,155 @@ div.banneritem {
     left: 50%;
     margin-left:500px;
 }
+
+/*GK NEWS PRO ---------------------------------------------------------------------------------------------------*/
+
+.sp-slideshow-module.box{
+    padding:0;
+}
+
+.gkCols3 .box.gkmod-2 {
+  width: 66.66%;
+}
+
+.gkCols3 .box.gkmod-2.small {
+  width: 33.33%;
+}
+.nspArt.nspCol1{
+   padding:0!important; 
+}    
+
+
+.sp-slideshow .sp-image{
+    vertical-align: top;
+
+}
+.sp-slideshow{
+    position:relative;
+}
+.sp-slideshow .sp-caption{
+    position:absolute;
+    width:96%;
+    z-index:100;
+    bottom:0;
+    height: 70px;
+    padding:2%;
+    background: -webkit-linear-gradient(bottom,rgba(0,0,0,.95) 0,rgba(0,0,0,0) 100%);
+    background: linear-gradient(0deg,rgba(0,0,0,.95) 0,rgba(0,0,0,0) 100%);
+}
+
+.sp-slideshow a.sp-image-link{
+    background:#000000;
+    display:inline-block;
+}
+
+.sp-slideshow:hover img{
+    opacity:0.8;   
+}
+
+.sp-truncate{
+overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;}
+
+.sp-slideshow:hover h4>a{
+    text-decoration:underline;   
+}
+
+.sp-slideshow h4.sp-title > a{
+    color:#ffffff;
+    font-size:32px;
+    line-height:44px;
+
+}
+
+.sp-slideshow-module.small .sp-slideshow h4.sp-title > a{
+    font-size:22px;
+    line-height:44px;
+}
+
+.sp-slideshow .sp-meta>.sp-date{
+    color:#cccccc;
+    font-size:14px;
+    line-height:14px;
+}
+#gkTop1 .sp-slideshow-module{background:#000;}
+.sp-slideshow .sp-meta>.sp-category
+{
+    background:#d81010;
+    padding:3px 5px;
+    color:#ffffff;
+    font-size:14px;
+    line-height:14px;
+}
+
+.sp-slideshow-module .nspTopInterface{
+    top:0;
+    z-index:200;
+    margin:2%;
+    left:0;
+
+}
+
+.sp-slideshow-module.small .nspTopInterface{
+    left:auto;
+}
+
+.sp-slideshow-module .nspNext, .sp-slideshow-module .nspPrev {
+  border:0;
+  cursor: pointer;
+  display: block;
+  float: left;
+  height: 44px;
+  width: 44px;
+  background-color: rgba(0, 0, 0,0.5);
+}
+
+.sp-slideshow-module .nspNext:hover, .sp-slideshow-module .nspPrev:hover {
+  background-color: rgba(0, 0, 0,1);
+
+}
+
+.sp-slideshow-module .nspNext:after, .sp-slideshow-module .nspPrev:after {
+    color:#ffffff;
+    font-size:32px;
+    line-height:32px;
+    text-align:center;
+    width:22px;
+}
+
+.sp-grid-module hr.separator{
+    display:none;
+}
+
+.nspLinks .nspLinkScroll1 ul li:first-child {
+
+  padding-top:0;
+}
+.nspLinks {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding:0;
+}
+
+.nspList li > .nspImageWrapper + div > h4 {
+  margin-top: 0;
+}
+
+/*social icons ----------------------------------------------------------------------------------------*/
+#gkSocial a:hover i.fa.fa-twitter {
+    color: #2aa9e0;
+}
+#gkSocial a:hover i.fa.fa-facebook {
+    color: #204385;
+}
+#gkSocial a:hover i.fa.fa-pinterest {
+    color: #bd081c;
+}
+#gkSocial a:hover i.fa.fa-instagram {
+    color: #125688;
+}
+
+/*Weather -------------------------------------------------------------------------------------------------*/
+
