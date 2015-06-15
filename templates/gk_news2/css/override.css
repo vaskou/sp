@@ -313,6 +313,10 @@ overflow:hidden;
 #gkSocial a:hover i.fa.fa-instagram {
     color: #125688;
 }
+#gkSocial a:hover i.fa.fa-google-plus {
+    color: #db4b39;
+}
+
 
 /*Weather -------------------------------------------------------------------------------------------------*/
 
