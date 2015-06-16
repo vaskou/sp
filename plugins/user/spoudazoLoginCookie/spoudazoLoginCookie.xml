@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="user" method="upgrade">
+	<name>Spoudazo Set Cookie After Login</name>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0.0</version>
+	<files>
+		<filename plugin="spoudazoLoginCookie">spoudazoLoginCookie.php</filename>
+	</files>
+</extension>

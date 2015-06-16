@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2" method="upgrade">
+	<name>com_spoudazo</name>
+	<author>Spoudazo</author>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0.0</version>
+	<description></description>
+
+	<files folder="site">
+		<filename>spoudazo.php</filename>
+	</files>
+
+	<administration>
+		<files folder="admin">
+			<filename>spoudazo.php</filename>
+		</files>
+	</administration>
+</extension>
