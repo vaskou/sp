@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+    <name>Spoudazo Calendar</name>
+    <author>YesInternet</author>
+    <creationDate>May 11 2015</creationDate>
+    <copyright></copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>info@yesinternet.gr</authorEmail>
+    <authorUrl>http://www.yesinternet.gr</authorUrl>
+    <version>1.0.0</version>
+    <description></description>
+    <files>
+        <file plugin="spoudazocalendar">spoudazocalendar.php</file>
+		<filename plugin="spoudazocalendar">spoudazocalendar.xml</filename>
+    </files>
+</extension>
