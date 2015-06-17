@@ -18,6 +18,7 @@ JHtml::_('behavior.formvalidator');
                 </select>
                 <input type="email" required="required" class="validate-email" id="email" city="email" placeholder="E-mail" />
                 <input type="hidden" name="option" value="com_spoudazo" />
+                <input type="hidden" name="task" value="spoudazo.setCookie" />
                 <input type="hidden" name="return_url" value="<?php echo JRoute::_(JUri::getInstance()->toString()); ?>" />
                 <button type="submit" class="validate"><?php echo JText::_('JSUBMIT'); ?></button>
             </form>
@@ -68,7 +69,7 @@ function fn_display_step_2()
 function fn_dont_show_again()
 {
 	jQuery.ajax({
-		url: '<?php echo JRoute::_('index.php?option=com_spoudazo'); ?>',
+		url: '<?php echo JRoute::_('index.php?option=com_spoudazo&task=spoudazo.setCookie'); ?>',
 		success: function(response){
 			SqueezeBox.close();
 		}
