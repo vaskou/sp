@@ -27,6 +27,7 @@
 	</fields-->
 	<fields group="category">
 		<field name="isCity" type="checkbox" default="0" label="Is City" description="" />
+		<field name="listID" type="text" label="Mailchimp List ID" default="0" />
 		<field name="woeid" type="text" label="WOEID" default="0" />
 	</fields>
 	<fields group="user">

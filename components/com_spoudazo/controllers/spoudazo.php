@@ -15,17 +15,10 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 		$option=$jinput->getArray();
 		
 		$cityID=$jinput->get('cityID','');
-		$return_url=$jinput->get('return_url','','RAW');
-		$notAgain=$jinput->get('notAgain','false');
 		
-		$cookie=$app->input->cookie;
+		self::set_cookie($cityID);
 		
-		$cookie->set('spoudazoCookie','true',time() + (10*365*24*60*60),'/' );
-		$cookie->set('spoudazoCityID',$cityID,time() + (10*365*24*60*60),'/' );
-		
-		//$app->redirect(JRoute::_($return_url));
-		
-		echo new JResponseJson( array('cityID'=>$cityID, 'return_url'=>$return_url) );
+		echo new JResponseJson( array('cityID'=>$cityID) );
 		
 		jexit();
 	}
@@ -36,11 +29,23 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 		
 		$jinput = $app->input;
 		
-		$email=$jinput->get('email','vaskou@hotmail.com','RAW');
-		$listID='2ec7866a54';
-		$username = 'yesinternet';
-		$APIKey = '583793ce6fa23567e84ff52b95b35786-us11';
-		self::mailchimp_request('POST', $listID, $username, $APIKey, $email);
+		$email=$jinput->get('email','','STRING');
+
+		$cityID=$jinput->get('cityID','','INT');
+		
+		$city=self::getCity($cityID);
+		
+		if($city){
+			$listID=$city['listID'];
+		
+			$response = self::mailchimp_request('POST', $listID, $email);
+		}
+		
+		self::set_cookie($cityID);
+		
+		echo new JResponseJson( array('cityID'=>$cityID, 'response'=>$response) );
+		
+		jexit();
 	}
 	
 	public function checkSubscriber()
@@ -49,15 +54,29 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 		
 		$jinput = $app->input;
 		
-		$email=$jinput->get('email','vaskou@hotmail.com','RAW');
-		$listID='2ec7866a54';
-		$username = 'yesinternet';
-		$APIKey = '583793ce6fa23567e84ff52b95b35786-us11';
-		self::mailchimp_request('GET', $listID, $username, $APIKey, $email);
+		$email=$jinput->get('email','','STRING');
+
+		$cityID=$jinput->get('cityID','','INT');
+		
+		$city=self::getCity($cityID);
+		
+		if($city){
+			$listID=$city['listID'];
+		
+			$response = self::mailchimp_request('GET', $listID, $email);
+		}
+		
+		echo new JResponseJson( array('cityID'=>$cityID, 'response'=>$response) );
+		
+		jexit();
+		
 	}
 	
-	private function mailchimp_request($type, $listID, $username, $APIKey, $email )
+	private function mailchimp_request($type, $listID, $email )
 	{
+		$username = JComponentHelper::getParams('com_spoudazo')->get('username');
+		$APIKey = JComponentHelper::getParams('com_spoudazo')->get('APIKey');
+		
 		$request =  'http://us11.api.mailchimp.com/3.0/lists';
 		$request .= '/'.$listID.'/members/';
 			
@@ -86,12 +105,8 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 		// Do the POST and then close the session
 		$response = curl_exec($session);
 		
-		if($response === false)
-		{
-			echo 'Curl error: ' . curl_error($session);
-		}
 		curl_close($session);
-		var_dump($response);
+		
 		// Parse the JSON response
 		try {
 			if(is_object(json_decode($response))){
@@ -100,13 +115,48 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 				throw new Exception("Result is not a json object");
 			}
 		} catch( Exception $e ) {
-			var_dump($e);
+			//var_dump($e);
 			return false;
 		}
 		
-		var_dump($resultObj);
-		die;
+		return $resultObj;
+
 	}
 	
+	private function set_cookie($cityID)
+	{
+		$app = JFactory::getApplication();
+		
+		$cookie=$app->input->cookie;
+		
+		$cookie->set('spoudazoCookie','true',time() + (10*365*24*60*60),'/' );
+		$cookie->set('spoudazoCityID',$cityID,time() + (10*365*24*60*60),'/' );
+	}
+	
+	private function getCity($cityID)
+	{
+		$db = JFactory::getDBO();
+		
+		$query="SELECT id,name,plugins FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' ";
+		
+		if($cityID){
+			$query .= " AND id=$cityID";
+		}
+		
+		$db->setQuery($query);
+		$results = $db->loadObjectList();
+		
+		if(count($results) == 1){
+			$plugins=json_decode($results[0]->plugins);
+			$city['id']=$results[0]->id;
+			$city['name']=$results[0]->name;
+			$city['woeid']=$plugins->citySelectwoeid;
+			$city['listID']=$plugins->citySelectlistID;
+			
+			return $city;
+		}
+		
+		return false;
+	}
 
 }

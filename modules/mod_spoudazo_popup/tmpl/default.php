@@ -16,9 +16,9 @@ JHtml::_('behavior.formvalidator');
                         <option value="<?php echo $city->id;?>" ><?php echo htmlspecialchars($city->name); ?></option>
                     <?php } ?>
                 </select>
-                <input type="email" required="required" class="validate-email" id="email" city="email" placeholder="E-mail" />
+                <input type="email" required="required" class="validate-email" id="email" name="email" placeholder="E-mail" />
                 <input type="hidden" name="option" value="com_spoudazo" />
-                <input type="hidden" name="task" value="spoudazo.setCookie" />
+                <input type="hidden" name="task" value="spoudazo.addSubscriber" />
                 <input type="hidden" name="return_url" value="<?php echo JRoute::_(JUri::getInstance()->toString()); ?>" />
                 <button type="submit" class="validate"><?php echo JText::_('JSUBMIT'); ?></button>
             </form>
@@ -29,7 +29,7 @@ JHtml::_('behavior.formvalidator');
         <div class="spoudazo_popup_step_2" style="display:none;">
         	<h3><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONGRATULATIONS');?></h3>
         	<a href="<?php echo JRoute::_('index.php?option=com_users&view=registration');?>" ><?php echo JText::_('JREGISTER'); ?></a>
-            <a href="#" onclick="SqueezeBox.close($('spoudazo_popup'));"><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONTINUE');?></a>
+            <a href="#" onclick="SqueezeBox.close($('spoudazo_popup'));fn_display_step_2();"><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONTINUE');?></a>
         </div>
 	</div>
 </div>
