@@ -87,15 +87,6 @@ ul.sigFreeClassic li.sigFreeThumb {
 
 }
 
-#gkLogo:hover:before{
-    content:"ΑΡΧΙΚΗ ΣΕΛΙΔΑ";
-    position:absolute;
-    top:-10px;
-    color:#eb1e00;
-    text-indent:0;
-
-}
-
 /* Highlighter -------------------------------------------------------------------------------------------------------*/
 .gkHighlighterInterface span.text {
   margin: 0 0 0 15px;
@@ -315,6 +306,10 @@ overflow:hidden;
 }
 #gkSocial a:hover i.fa.fa-google-plus {
     color: #db4b39;
+}
+
+#gkSocial a:hover i.fa.fa-youtube {
+    color: #cc181e;
 }
 
 

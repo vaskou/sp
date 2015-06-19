@@ -36,8 +36,8 @@ class plgK2Onbeforesetquery extends K2Plugin
 		$app = JFactory::getApplication();
 		
 		
-		var_dump($app->input->get('task', ''));
-		var_dump($query);
+		//var_dump($app->input->get('task', ''));
+		//var_dump($query);
 		
 		//$item->text = 'It works! '.$item->text;
 	}	
