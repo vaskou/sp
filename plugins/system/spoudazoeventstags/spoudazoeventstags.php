@@ -18,7 +18,7 @@ if (!class_exists('plgSystemspoudazoweather')) {
      * Plugin entrypoint
      * @link http://docs.joomla.org/Plugin/Events/System
      */
-    class plgSystemSpoudazocalendar extends JPlugin {
+    class plgSystemSpoudazoeventstags extends JPlugin {
 		
 		var $_params;
 		var $_pluginPath;
@@ -28,37 +28,17 @@ if (!class_exists('plgSystemspoudazoweather')) {
          * @param type $subject
          * @param type $config
          */
-        function plgSystemSpoudazocalendar(& $subject, $config) {
+        function plgSystemSpoudazoeventstags(& $subject, $config) {
             parent::__construct($subject, $config);
-			$this->_plugin = JPluginHelper::getPlugin( 'system', 'spoudazocalendar' );
+			$this->_plugin = JPluginHelper::getPlugin( 'system', 'spoudazoeventstags' );
 			$this->_params = new JForm( $this->_plugin->params );
-			$this->_pluginPath = JPATH_PLUGINS."/system/spoudazocalendar/";
+			$this->_pluginPath = JPATH_PLUGINS."/system/spoudazoeventstags/";
         }
-		
-		public function onAfterInitialise(){
-			
-			$app = JFactory::getApplication();
-			
-			//If not in forntend, return
-			if(!$app->isSite()){
-				return;
-			}
-			
-			//Get the current menu by Itemid
-			$Itemid = $app->input->get('Itemid','0','int');
-			$menu =  $app->getMenu()->getItem($Itemid);
-			
-			//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
-			if( $menu -> menutype == 'events' ){
-				$categories = $menu->params -> get ('categories');
-				$app->getParams('com_k2')->set('categoriesFilter',$categories);
-			}
-			
-		}
 		
 		public function onAfterDispatch()
 		{
 			$app = JFactory::getApplication();
+			//$cookie=$app->input->cookie;
 
 			//If not in forntend, return
 			if(!$app->isSite()){
@@ -66,32 +46,32 @@ if (!class_exists('plgSystemspoudazoweather')) {
 			}
 	
 			//Get k2 Tools module params
-			$mod_k2_tools=JModuleHelper::getModule('mod_k2_tools','Ημερολόγιο Events');
+			$mod_k2_tools=JModuleHelper::getModule('mod_k2_tools','Event tags');
 			
 			
 			$params=json_decode($mod_k2_tools->params,true);
 
 			//If not calendar mode, reutrn. module_usage=2 for calendar mode
-			if( $params ['module_usage'] !='2')
+			if( $params ['module_usage'] !='7')
 			{
 				return;	
 			}
 
 			//If not in K2 category view mode, return
-			//if(  $app->input->get('option','','string') != 'com_k2' )
-			//{
-			//	return;	
-			//}
-			//
-			//if(  $app->input->get('view','','string') != 'itemlist')
-			//{
-			//	return;	
-			//}
-			//
-			//if(  $app->input->get('layout','','string') != 'category')
-			//{
-			//	return;	
-			//}
+			if(  $app->input->get('option','','string') != 'com_k2' )
+			{
+				return;	
+			}
+			
+			if(  $app->input->get('view','','string') != 'itemlist')
+			{
+				return;	
+			}
+			
+			if(  $app->input->get('layout','','string') != 'category')
+			{
+				return;	
+			}
 			
 			//Get the current menu by Itemid
 			$Itemid = $app->input->get('Itemid','0','int');
@@ -100,21 +80,27 @@ if (!class_exists('plgSystemspoudazoweather')) {
 			//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
 			if( $menu -> menutype == 'events' ){
 				$categories = $menu->params -> get ('categories');
-				$category=$categories[0];
+				//$category=$categories[0];
 				
-
-				$params ['calendarCategory'] = $category;
+				$params ['cloud_category'] = $categories;
+				//$params ['calendarCategory'] = $category;
 			}
+			
 			
 			
 			//Set the calendarCategory equal to current category id
 			//if( $app->input->get('id','0','string') !='0'){
-			//
-			//	
+			//	$cloud_category=array();
+			//	$cloud_category['0'] = $app->input->get('id','0','string');
+			//	$params ['cloud_category'] = $cloud_category;
 			//}
 			//else{
-			//	$mod_k2_tools -> position = '';
+				//$cloud_category['0']= '10000000000000';
 			//}
+			
+			
+	
+			
 			
 			$mod_k2_tools->params=json_encode($params);
 			
