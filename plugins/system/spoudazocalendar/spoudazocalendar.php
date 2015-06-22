@@ -35,7 +35,7 @@ if (!class_exists('plgSystemspoudazoweather')) {
 			$this->_pluginPath = JPATH_PLUGINS."/system/spoudazocalendar/";
         }
 		
-		public function onAfterInitialise(){
+		public function onAfterRoute(){
 			
 			$app = JFactory::getApplication();
 			
@@ -47,6 +47,7 @@ if (!class_exists('plgSystemspoudazoweather')) {
 			//Get the current menu by Itemid
 			$Itemid = $app->input->get('Itemid','0','int');
 			$menu =  $app->getMenu()->getItem($Itemid);
+
 			
 			//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
 			if( $menu -> menutype == 'events' ){

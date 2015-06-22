@@ -58,20 +58,20 @@ if (!class_exists('plgSystemspoudazoweather')) {
 			}
 
 			//If not in K2 category view mode, return
-			if(  $app->input->get('option','','string') != 'com_k2' )
-			{
-				return;	
-			}
-			
-			if(  $app->input->get('view','','string') != 'itemlist')
-			{
-				return;	
-			}
-			
-			if(  $app->input->get('layout','','string') != 'category')
-			{
-				return;	
-			}
+			//if(  $app->input->get('option','','string') != 'com_k2' )
+			//{
+			//	return;	
+			//}
+			//
+			//if(  $app->input->get('view','','string') != 'itemlist')
+			//{
+			//	return;	
+			//}
+			//
+			//if(  $app->input->get('layout','','string') != 'category')
+			//{
+			//	return;	
+			//}
 			
 			//Get the current menu by Itemid
 			$Itemid = $app->input->get('Itemid','0','int');
