@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset label="Spoudazo" name="spoudazo">
+		<field name="datacenter" type="text" label="Mailchimp datacenter id" description="Get the datacenter id from the letters after the '-' of the API Key" />
+        <field name="username" type="text" label="Mailchimp username" />
+		<field name="APIKey" type="text" label="Mailchimp APIKey" />
+    </fieldset>
+</config>

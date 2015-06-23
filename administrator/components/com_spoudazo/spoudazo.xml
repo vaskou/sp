@@ -4,7 +4,7 @@
 	<author>Spoudazo</author>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>1.0.0</version>
-	<description></description>
+	<description>Spoudazo</description>
 
 	<files folder="site">
 		<filename>spoudazo.php</filename>

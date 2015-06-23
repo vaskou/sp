@@ -17,12 +17,13 @@ class modSpoudazoPopupHelper
 	public function showPopup()
 	{
 		$app = JFactory::getApplication();
-		$cookie=$app->input->cookie;
+		$jinput = $app->input;
+		$cookie = $app->input->cookie;
 		$user = JFactory::getUser();
 		
 		$hide_popup=false;
 		
-		if($cookie->get('spoudazoCookie')=='true'){
+		if($cookie->get('spoudazoCookie')=='true' || $jinput->get('option')=='com_users' ){
 			$hide_popup=true;
 		}
 		
@@ -30,20 +31,11 @@ class modSpoudazoPopupHelper
 		
 		if($isGuest && !$hide_popup){
 			$document = JFactory::getDocument();
-			$document->addScript(JURI::base().'modules/mod_spoudazo_popup/script.js');
+			$document->addScript(JURI::base().'modules/mod_spoudazo_popup/assets/js/script.js');
 			return true;
 		}
 		
 		return false;
 	}
 	
-	public function getCities()
-	{
-		$db = JFactory::getDBO();
-		$query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' UNION SELECT '' as id,'None' as name ORDER BY name";
-		$db->setQuery($query);
-		$results = $db->loadObjectList();
-		
-		return $results;
-	}
 }

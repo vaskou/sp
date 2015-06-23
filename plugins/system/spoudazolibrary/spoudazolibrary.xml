@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+    <name>Spoudazo Library</name>
+    <copyright>Copyright (C) 2014  Donorwiz.</copyright>
+    <license>GNU General Public License version 2 or later.</license>
+    <version>1.0.0</version>
+    <description>A plugin to register Spoudazo custom library.</description>
+ 
+    <files>
+        <filename plugin="spoudazolibrary">spoudazolibrary.php</filename>
+        <filename>index.html</filename>
+    </files>
+</extension>

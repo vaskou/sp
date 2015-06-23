@@ -99,7 +99,7 @@ if (!class_exists('plgSystemspoudazoredirects')) {
 			if( $user->get('guest') && $cookie->get('spoudazoCityID')!='' ){
 				$userCity=$cookie->get('spoudazoCityID');
 			}else{
-				$userCity=$this->getUserSelectedCity($userID);
+				$userCity=SpoudazoLibrary::getUserSelectedCity($userID);
 			}
 			
 			foreach($menuCategories as $menuCategory){
@@ -119,31 +119,6 @@ if (!class_exists('plgSystemspoudazoredirects')) {
 			
         }
 		
-		private function getUserSelectedCity($userID)
-		{
-
-			$app = JFactory::getApplication();
-			
-			$db = JFactory::getDBO();
-			$query = "SELECT plugins FROM #__k2_users WHERE userID = ".$userID;
-			$db->setQuery($query);
-			$row = $db->loadObject();
-			if (!$row)
-			{
-				$row = JTable::getInstance('K2User', 'Table');
-			}
-			
-			try{
-				$plugins=json_decode($row->plugins);
-			}catch(  Exception $ex){
-				
-			}
-			
-			if(isset($plugins->citySelectcity)){
-				return $plugins->citySelectcity;
-			}
-			return false;
-		}
 		
     }
 }
