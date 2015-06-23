@@ -1,0 +1,10 @@
+.spoudazo_wrapper{
+	text-align:center;
+}
+.spoudazo_popup_step_1 div{
+	margin-bottom:10px;
+}
+.spoudazo_popup_step_1 button{
+	float:none;
+	display:inline-block;
+}

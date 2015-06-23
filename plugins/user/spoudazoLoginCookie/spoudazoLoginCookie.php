@@ -29,42 +29,13 @@ class PlgUserSpoudazoLoginCookie extends JPlugin
 			return true;
 		}
 		
-		$cookie=$app->input->cookie;
-		
 		$user=$options['user'];
 		
-		$cityID = $this->getUserSelectedCity($user->id);
-
-		$cookie->set('spoudazoCookie','true',time() + (10*365*24*60*60),'/' );
-		$cookie->set('spoudazoCityID',$cityID,time() + (10*365*24*60*60),'/' );
+		$cityID = SpoudazoLibrary::getUserSelectedCity($user->id);
+		
+		SpoudazoLibrary::set_cookie($cityID);
 
 		return true;
-	}
-	
-	private function getUserSelectedCity($userID)
-	{
-
-		$app = JFactory::getApplication();
-		
-		$db = JFactory::getDBO();
-		$query = "SELECT plugins FROM #__k2_users WHERE userID = ".$userID;
-		$db->setQuery($query);
-		$row = $db->loadObject();
-		if (!$row)
-		{
-			$row = JTable::getInstance('K2User', 'Table');
-		}
-		
-		try{
-			$plugins=json_decode($row->plugins);
-		}catch(  Exception $ex){
-			
-		}
-		
-		if(isset($plugins->citySelectcity)){
-			return $plugins->citySelectcity;
-		}
-		return false;
 	}
 	
 }

@@ -9,6 +9,6 @@ modSpoudazoPopupHelper::showPopup();
 
 $params = modSpoudazoPopupHelper::getParams($params);
 
-$cities = modSpoudazoPopupHelper::getCities();
+$cities = SpoudazoLibrary::getCities();
 
 require JModuleHelper::getLayoutPath('mod_spoudazo_popup');

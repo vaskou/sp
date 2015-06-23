@@ -38,13 +38,4 @@ class modSpoudazoPopupHelper
 		return false;
 	}
 	
-	public function getCities()
-	{
-		$db = JFactory::getDBO();
-		$query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' UNION SELECT '' as id,'None' as name ORDER BY name";
-		$db->setQuery($query);
-		$results = $db->loadObjectList();
-		
-		return $results;
-	}
 }
