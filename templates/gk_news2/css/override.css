@@ -312,6 +312,40 @@ overflow:hidden;
     color: #cc181e;
 }
 
-
 /*Weather -------------------------------------------------------------------------------------------------*/
+
+/* Business -------------------------------------------------------------------------------------------------*/
+.categories-list-tree .level0>li{
+    width:33%;
+    display:inline-block;
+    float:left;
+    
+}
+
+@media screen and (max-width: 767px) {
+    .categories-list-tree .level0>li{
+    width:100%;
+
+    
+}
+}
+
+
+.categories-list-tree .level0>li>a{
+    
+    color:#fff;
+    background:#eb1e00;
+    padding:5px 10px;
+}
+
+.categories-list-tree .level0>li>a>span{
+    color:#fff;
+}
+.categories-list-tree .level0>li>a>span.catCounter{
+    display:none;
+}
+
+.categories-list-tree .level0>li>ul.level1{
+margin-left: 0;
+}
 
