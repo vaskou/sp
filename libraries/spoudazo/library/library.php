@@ -43,7 +43,7 @@ class SpoudazoLibrary {
 	public function getCities()
 	{
 		$db = JFactory::getDBO();
-		$query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' UNION SELECT '' as id,'MOD_SPOUDAZO_POPUP_SELECT_CITY' as name ORDER BY name";
+		$query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' AND `published`='1' UNION SELECT '' as id,'MOD_SPOUDAZO_POPUP_SELECT_CITY' as name ORDER BY name";
 		$db->setQuery($query);
 		$results = $db->loadObjectList();
 		
