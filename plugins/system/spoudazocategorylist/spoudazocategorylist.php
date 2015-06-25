@@ -38,41 +38,64 @@ if (!class_exists('plgSystemSpoudazocategorylist')) {
 		public function onAfterDispatch()
 		{
 			$app = JFactory::getApplication();
-			//$cookie=$app->input->cookie;
 
 			//If not in forntend, return
 			if(!$app->isSite()){
 				return;
 			}
-	
-			//Get k2 Tools module params
-			$mod_k2_tools=JModuleHelper::getModule('mod_k2_tools','Business categories list');
 			
-			
-			$params=json_decode($mod_k2_tools->params,true);
-
-			//If not calendar mode, reutrn. module_usage=4 for categories list mode
-			if( $params ['module_usage'] !='4')
-			{
-				return;	
-			}
-
-			//Get the current menu by Itemid
 			$Itemid = $app->input->get('Itemid','0','int');
 			$menu =  $app->getMenu()->getItem($Itemid);
 			
-			//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
-			if( $menu -> menutype == 'businesses' )
-			{
-				$categories = $menu->params -> get ('categories');
-				$category = $categories[0];
-
-				if($category){
-					$params ['root_id'] = $category;
-				}
-			}
 			
-			$mod_k2_tools->params=json_encode($params);
+			//Get k2 Tools module params
+			$mod_k2_tools=JModuleHelper::getModule('mod_k2_tools','Business categories list');
+			$params=json_decode($mod_k2_tools->params,true);
+
+			//If not calendar mode, reutrn. module_usage=4 for categories list mode
+			if( $params ['module_usage'] =='4')
+			{
+				//Get the current menu by Itemid
+				
+				
+			
+				//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
+				if( $menu -> menutype == 'businesses' )
+				{
+					$categories = $menu->params -> get ('categories');
+					$category = $categories[0];
+
+					if($category){
+						$params ['root_id'] = $category;
+					}
+				}
+			
+				$mod_k2_tools->params=json_encode($params);
+			}
+
+			
+			//Get k2 Tools module params
+			$mod_k2_tools=JModuleHelper::getModule('mod_k2_tools','City guide categories list');
+			$params=json_decode($mod_k2_tools->params,true);
+
+			//If not calendar mode, reutrn. module_usage=4 for categories list mode
+			if( $params ['module_usage'] =='4')
+			{
+			
+				//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
+				if( $menu -> menutype == 'cityguide' )
+				{
+					$categories = $menu->params -> get ('categories');
+					$category = $categories[0];
+
+					if($category){
+						$params ['root_id'] = $category;
+					}
+				}
+			
+				$mod_k2_tools->params=json_encode($params);
+			}		
+
 			
 		}
     }
