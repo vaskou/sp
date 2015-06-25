@@ -23,14 +23,14 @@ $link = $params->get('link','#');
         </div>
         <div class="ce-info ce-clearfix">
             <div class="ce-bar ce-bar-days"><div class="ce-fill" style="width: 96.4383561643836%;"></div></div> 
-            <div class="ce-number">
+            <div class="ce-number ce-number-days">
                 <span class="ce-days">
                     <span class="ce-days-digit"></span>
                     <span class="ce-days-digit"></span>        
                 </span>
                 <span class="ce-days-label"></span>
             </div>
-            <span class="ce-comma">,</span>
+            
             
             <div class="ce-bar ce-bar-hours"><div class="ce-fill" style="width: 100%;"></div></div> 
             <div class="ce-number">
@@ -38,9 +38,10 @@ $link = $params->get('link','#');
                     <span class="ce-hours-digit"></span>
                     <span class="ce-hours-digit"></span>
                 </span>
+                
                 <span class="ce-hours-label"></span>
             </div>
-            <span class="ce-comma">,</span>
+            <div class="ce-comma">:</div>
             
             <div class="ce-bar ce-bar-minutes"><div class="ce-fill" style="width: 80%;"></div></div> 
             <div class="ce-number">
@@ -48,9 +49,10 @@ $link = $params->get('link','#');
                     <span class="ce-minutes-digit"></span>
                     <span class="ce-minutes-digit"></span>
                 </span>
+                
                 <span class="ce-minutes-label"></span>
             </div>
-            <span class="ce-comma">,</span>
+            <div class="ce-comma">:</div>
              
             <div class="ce-bar ce-bar-seconds"><div class="ce-fill" style="width: 75%;"></div></div> 
             <div class="ce-number">

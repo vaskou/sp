@@ -17,4 +17,15 @@
 		<language tag="en-GB">en-GB.mod_spoudazo_popup.ini</language>
 		<language tag="el-GR">el-GR.mod_spoudazo_popup.ini</language>
 	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="bullets_icon" type="text" label="Bullets Icon" />
+				<field name="bullet1" type="text" label="Bullet 1" />
+				<field name="bullet2" type="text" label="Bullet 2" />
+				<field name="bullet3" type="text" label="Bullet 3" />
+				<field name="bullet4" type="text" label="Bullet 4" />
+			</fieldset>
+		</fields>
+	</config>
 </extension>

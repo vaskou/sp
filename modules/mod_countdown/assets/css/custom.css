@@ -22,10 +22,14 @@
 	display:inline-block;
 	line-height:normal;
 }
-
+.ce-countdown--theme-13 .ce-number-days{
+	margin-right:13px;
+}
 .ce-countdown--theme-13 .ce-comma{
 	font-size:3em;
-	vertical-align:bottom;
+	display: inline-block;
+  	position: relative;
+	top: -30px;
 }
 
 .ce-countdown--theme-13 .ce-days,
@@ -38,6 +42,9 @@
 	color:#fff;
 	background:#000;
 	padding:0 3px;
+}
+.ce-countdown--theme-13 .ce-days{
+	background:#d81010;
 }
 
 .ce-countdown--theme-13 .ce-bar-days,
