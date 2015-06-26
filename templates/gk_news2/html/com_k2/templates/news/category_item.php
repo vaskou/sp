@@ -13,12 +13,12 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 
 ?>
 
-<article class="itemView sp-events-item group<?php echo ucfirst($this->item->itemGroup); ?><?php echo ($this->item->featured) ? ' itemIsFeatured' : ''; ?><?php if($this->item->params->get('pageclass_sfx')) echo ' '.$this->item->params->get('pageclass_sfx'); ?>"> <?php echo $this->item->event->BeforeDisplay; ?> <?php echo $this->item->event->K2BeforeDisplay; ?>		
+<article class="itemView sp-news-item group<?php echo ucfirst($this->item->itemGroup); ?><?php echo ($this->item->featured) ? ' itemIsFeatured' : ''; ?><?php if($this->item->params->get('pageclass_sfx')) echo ' '.$this->item->params->get('pageclass_sfx'); ?>"> <?php echo $this->item->event->BeforeDisplay; ?> <?php echo $this->item->event->K2BeforeDisplay; ?>		
 		<div class="itemBlock">	
 				<?php if($this->item->params->get('catItemImage') && !empty($this->item->image)): ?>
 				<div class="itemImageBlock"> <a class="itemImage" href="<?php echo $this->item->link; ?>" title="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>"> <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" /> </a> </div>
 				<?php endif; ?>
-				<div class="sp-events-item-content">
+				<div class="sp-news-item-content">
 				<header>
 						<?php if(isset($this->item->editLink)): ?>
 						<a class="catItemEditLink modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->item->editLink; ?>">
@@ -109,7 +109,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
                 <?php endif; ?>
                 </div>
                 
-                <div class="sp-events-item-info">
+                <div class="sp-news-item-info">
                 
 				<?php if($this->item->params->get('catItemCategory') || $this->item->params->get('catItemAuthor') || $this->item->params->get('catItemCommentsAnchor') || $this->item->params->get('catItemRating') || $this->item->params->get('catItemHits') || ($this->item->params->get('catItemDateModified') && $this->item->created != $this->item->modified) || $this->item->params->get('latestItemDateCreated')) : ?>
 				<ul>
@@ -134,7 +134,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 						<?php endif; ?>
 
 						<?php if($this->item->params->get('catItemCategory')): ?>
-						<li class="sp-events-item-info-category"><span><?php echo JText::_('K2_PUBLISHED_IN'); ?> </span><a href="<?php echo $this->item->category->link; ?>" ><?php echo $this->item->category->name; ?></a> 
+						<li class="sp-news-item-info-category"><span><?php echo JText::_('K2_PUBLISHED_IN'); ?> </span><a href="<?php echo $this->item->category->link; ?>" ><?php echo $this->item->category->name; ?></a> 
 						</li>
 						<?php endif; ?>
 						
