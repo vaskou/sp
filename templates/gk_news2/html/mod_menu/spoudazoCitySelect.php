@@ -32,8 +32,9 @@ if($remove_index){
 	unset($list[$remove_index]);
 	array_unshift($list,$active_item);
 }
+$j=0;
 foreach ($list as $i => &$item) :
-	if($i==5){
+	if($j==5){
 		echo '<div class="menu-hidden">';
 	}
 	$class = 'item-'.$item->id;
@@ -104,7 +105,7 @@ foreach ($list as $i => &$item) :
 		echo '<li class="item-more more-less">More<i class="fa fa-angle-down"></i></li>';
 		echo '<li class="item-less more-less">Less<i class="fa fa-angle-up"></i></li>';
 	}
-	
+	$j++;
 endforeach;
 ?></ul>
 
