@@ -39,6 +39,7 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
                     	<a href="<?php echo JRoute::_('index.php?option=com_users&view=login');?>" ><?php echo JText::_('MOD_SPOUDAZO_POPUP_LOGIN'); ?></a>
                     </div>
                     <div>
+	                    <?php echo JText::_('MOD_SPOUDAZO_POPUP_OR'); ?>
 	                    <a href="<?php echo JRoute::_('index.php?option=com_users&view=registration');?>" ><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER'); ?></a>
 						<?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_OF'); ?>
                     </div>
@@ -73,11 +74,12 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
                         </div>
                     </div>
                     <div class="sp-popup-right">
-                    	<img src="http://static7.depositphotos.com/1278120/774/i/950/depositphotos_7741977-Couple-of-students-smiling.jpg" />
+                    	<img src="<?php echo $params->get('popup_image');?>" />
                     </div>
                 </div>
                 <div class="sp-signin-register">
-	                <a href="<?php echo JURI::getInstance()->toString(); ?>" ><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONTINUE');?></a>
+	                <a href="<?php echo JURI::getInstance()->toString(); ?>" ><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONTINUE');?></a><br />
+                    <a href="#" id="spoudazo_not_again" onclick="fn_dont_show_again();"><?php echo JText::_('MOD_SPOUDAZO_POPUP_DO_NOT_SHOW_AGAIN');?></a>
                 </div>
             </div>
     	</div>

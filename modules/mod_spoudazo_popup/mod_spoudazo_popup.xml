@@ -25,6 +25,7 @@
 				<field name="bullet2" type="text" label="Bullet 2" />
 				<field name="bullet3" type="text" label="Bullet 3" />
 				<field name="bullet4" type="text" label="Bullet 4" />
+				<field name="popup_image" type="media" directory="" label="Select image" />
 			</fieldset>
 		</fields>
 	</config>

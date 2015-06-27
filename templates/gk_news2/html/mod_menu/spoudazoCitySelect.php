@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 // Note. It is important to remove spaces between elements.
 ?>
 
-<ul class="menu<?php echo $class_sfx;?>"<?php
+<ul class="menu<?php echo $class_sfx;?> sp-city-sidemenu"<?php
 	$tag = '';
 	if ($params->get('tag_id')!=NULL) {
 		$tag = $params->get('tag_id').'';
@@ -34,9 +34,7 @@ if($remove_index){
 }
 foreach ($list as $i => &$item) :
 	if($i==5){
-		echo '<li class="item-more more-less">More</li>';
-		echo '<li class="item-less more-less" style="display:none;">Less</li>';
-		echo '<div class="menu-hidden" style="display:none;">';
+		echo '<div class="menu-hidden">';
 	}
 	$class = 'item-'.$item->id;
 	
@@ -101,9 +99,12 @@ foreach ($list as $i => &$item) :
 	else {
 		echo '</li>';
 	}
-	if($i==$count){
+	if($i==$count-1){
 		echo '</div>';
+		echo '<li class="item-more more-less">More<i class="fa fa-angle-down"></i></li>';
+		echo '<li class="item-less more-less">Less<i class="fa fa-angle-up"></i></li>';
 	}
+	
 endforeach;
 ?></ul>
 
