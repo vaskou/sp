@@ -12,7 +12,7 @@ jimport( 'joomla.event.plugin' );
 /**
  * Class exists checking
  */
-if (!class_exists('plgSystemspoudazoweather')) {
+if (!class_exists('plgSystemSpoudazoeventstags')) {
 	
     /**
      * Plugin entrypoint
@@ -57,128 +57,19 @@ if (!class_exists('plgSystemspoudazoweather')) {
 				return;	
 			}
 
-			//If not in K2 category view mode, return
-			//if(  $app->input->get('option','','string') != 'com_k2' )
-			//{
-			//	return;	
-			//}
-			//
-			//if(  $app->input->get('view','','string') != 'itemlist')
-			//{
-			//	return;	
-			//}
-			//
-			//if(  $app->input->get('layout','','string') != 'category')
-			//{
-			//	return;	
-			//}
-			
 			//Get the current menu by Itemid
 			$Itemid = $app->input->get('Itemid','0','int');
 			$menu =  $app->getMenu()->getItem($Itemid);
 			
 			//Filter tag item result by category. This is needed becasue otherwise, it shows items from ALL K2!!!!!
-			if( $menu -> menutype == 'events' ){
+			if( $menu -> menutype == 'events' )
+			{
 				$categories = $menu->params -> get ('categories');
-				//$category=$categories[0];
-				
 				$params ['cloud_category'] = $categories;
-				//$params ['calendarCategory'] = $category;
 			}
-			
-			
-			
-			//Set the calendarCategory equal to current category id
-			//if( $app->input->get('id','0','string') !='0'){
-			//	$cloud_category=array();
-			//	$cloud_category['0'] = $app->input->get('id','0','string');
-			//	$params ['cloud_category'] = $cloud_category;
-			//}
-			//else{
-				//$cloud_category['0']= '10000000000000';
-			//}
-			
-			
-	
-			
 			
 			$mod_k2_tools->params=json_encode($params);
 			
-			
-			
-			//$user = JFactory::getUser();
-			//$userID=$user->id;
-			//
-			//if( $user->get('guest') && $cookie->get('spoudazoCityID')!='' ){
-			//	$userCity=$cookie->get('spoudazoCityID');
-			//}else{
-			//	$userCity=$this->getUserSelectedCity($userID);
-			//}
-			//
-			//$city=self::getCity($userCity);
-			
-			//if($city && $city['woeid']>'0'){
-				
-
-			
-			//var_dump($params);
-			//$params['fullcity']=$city['name'];
-			//$params['WOEID']=$city['woeid'];
-			//$mod_weather->params=json_encode($params);
-			//}
-			
 		}
-		
-		//private function getCity($cityID)
-		//{
-		//	$db = JFactory::getDBO();
-		//	
-		//	$query="SELECT id,name,plugins FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' ";
-		//	
-		//	if($cityID){
-		//		$query .= " AND id=$cityID";
-		//	}
-		//	
-		//	$db->setQuery($query);
-		//	$results = $db->loadObjectList();
-		//	
-		//	if(count($results) == 1){
-		//		$plugins=json_decode($results[0]->plugins);
-		//		$city['id']=$results[0]->id;
-		//		$city['name']=$results[0]->name;
-		//		$city['woeid']=$plugins->citySelectwoeid;
-		//		
-		//		return $city;
-		//	}
-		//	
-		//	return false;
-		//}
-		
-		//private function getUserSelectedCity($userID)
-		//{
-		//
-		//	$app = JFactory::getApplication();
-		//	
-		//	$db = JFactory::getDBO();
-		//	$query = "SELECT plugins FROM #__k2_users WHERE userID = ".$userID;
-		//	$db->setQuery($query);
-		//	$row = $db->loadObject();
-		//	if (!$row)
-		//	{
-		//		$row = JTable::getInstance('K2User', 'Table');
-		//	}
-		//	
-		//	try{
-		//		$plugins=json_decode($row->plugins);
-		//	}catch(  Exception $ex){
-		//		
-		//	}
-		//	
-		//	if(isset($plugins->citySelectcity)){
-		//		return $plugins->citySelectcity;
-		//	}
-		//	return false;
-		//}
-		
     }
 }

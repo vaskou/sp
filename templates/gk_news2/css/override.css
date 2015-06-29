@@ -81,7 +81,7 @@ ul.sigFreeClassic li.sigFreeThumb {
 
 	transition-duration: 1s;
     
-    filter: url('url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'><filter%20id='grayscale'><feColorMatrix%20type='matrix'%20values='0.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200%200%200%201%200'/></filter></svg>#grayscale");')
+    filter: url('url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'><filter%20id='grayscale'><feColorMatrix%20type='matrix'%20values='0.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200%200%200%201%200'/></filter></svg>#grayscale");')
     filter: gray;
     
 
@@ -98,7 +98,7 @@ ul.sigFreeClassic li.sigFreeThumb {
 }
 
 .gkHighlighterWrapper {
-  width: 360px;
+  width: 355px;
 
 }
 
@@ -382,7 +382,6 @@ overflow:hidden;
   transform: rotateX(180deg);
 }
 
-
 /*Weather -------------------------------------------------------------------------------------------------*/
 
 /* Business -------------------------------------------------------------------------------------------------*/
@@ -576,4 +575,5 @@ li.sp-events-item-info-category a:hover{
 [id^="itemList"]{
 	display:table;
 	width:100%;
+	
 }
