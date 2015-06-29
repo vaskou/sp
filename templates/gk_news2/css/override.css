@@ -292,24 +292,93 @@ overflow:hidden;
 }
 
 /*social icons ----------------------------------------------------------------------------------------*/
-#gkSocial a:hover i.fa.fa-twitter {
-    color: #2aa9e0;
+
+#gkSocial{
+	margin-right:0;
 }
-#gkSocial a:hover i.fa.fa-facebook {
-    color: #204385;
+#gkSocial a{
+	width: 54px;
+	text-align: center;
+	border-left: 1px solid #ddd;
+	padding:0;
 }
-#gkSocial a:hover i.fa.fa-pinterest {
-    color: #bd081c;
-}
-#gkSocial a:hover i.fa.fa-instagram {
-    color: #125688;
-}
-#gkSocial a:hover i.fa.fa-google-plus {
-    color: #db4b39;
+#gkSocial a i{
+	font-size:30px;
 }
 
-#gkSocial a:hover i.fa.fa-youtube {
-    color: #cc181e;
+#gkSocial .card .side.back i{
+	color:#fff;
+}
+
+#gkSocial .card.facebook .side i{
+	color:#204385;
+}
+#gkSocial .card.facebook .back{
+	background: #204385;
+}
+
+#gkSocial .card.twitter .side i{
+	color:#2aa9e0;
+}
+#gkSocial .card.twitter .back{
+	background: #2aa9e0;
+}
+
+#gkSocial .card.youtube .side i{
+	color:#cc181e;
+}
+#gkSocial .card.youtube .back{
+	background: #cc181e;
+}
+
+#gkSocial .card.google-plus .side i{
+	color:#db4b39;
+}
+#gkSocial .card.google-plus .back{
+	background: #db4b39;
+}
+
+#gkSocial .card.instagram .side i{
+	color:#125688;
+}
+#gkSocial .card.instagram .back{
+	background: #125688;
+}
+
+#gkSocial .card.pinterest .side i{
+	color:#bd081c;
+}
+#gkSocial .card.pinterest .back{
+	background: #bd081c;
+}
+
+#gkSocial .card .side.back i{
+	color:#fff !important;
+}
+
+/*flip animation------------------------------------*/
+.card-container {
+  perspective: 600;
+  position: relative;
+}
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 500ms ease-in-out;
+  width: 100%;
+}
+.card-container:hover .card {
+  transform: rotateX(180deg);
+}
+.card .side {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.card .back {
+  transform: rotateX(180deg);
 }
 
 /*Weather -------------------------------------------------------------------------------------------------*/
@@ -499,4 +568,10 @@ li.sp-events-item-info-category a:hover{
 }
 .sp-city-sidemenu .active:hover a{
 	color:#fff;	
+}
+
+/* ItemList width fix -------------------------------------------------------------------------------------------------*/
+[id^="itemList"]{
+	display:table;
+	width:100%;
 }
