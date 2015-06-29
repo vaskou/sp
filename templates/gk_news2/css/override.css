@@ -356,7 +356,6 @@ overflow:hidden;
 	color:#fff !important;
 }
 
-
 /*flip animation------------------------------------*/
 .card-container {
   perspective: 600;
@@ -575,5 +574,4 @@ li.sp-events-item-info-category a:hover{
 [id^="itemList"]{
 	display:table;
 	width:100%;
-	
 }
