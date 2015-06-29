@@ -1,10 +1,69 @@
 .spoudazo_wrapper{
 	text-align:center;
 }
-.spoudazo_popup_step_1 div{
-	margin-bottom:10px;
+.spoudazo_wrapper .sp-popup-subtitle,
+.spoudazo_wrapper .sp-email,
+.spoudazo_wrapper .sp-city,
+.spoudazo_wrapper .sp-popup-button,
+.spoudazo_wrapper .sp-eula{
+	width:75%;
+	margin:0px auto 10px;
 }
-.spoudazo_popup_step_1 button{
+.spoudazo_wrapper .sp-email input,
+.spoudazo_wrapper .sp-city select,
+.spoudazo_wrapper .sp-popup-button .button{
+	width:100%;
+	box-sizing:border-box;
+}
+.spoudazo_wrapper .sp-eula{
+	font-size:12px;
+}
+.spoudazo_wrapper .sp-signin-register{
+	border-top:1px solid #ddd;
+	padding:10px 0;
+	clear:both;
+}
+
+.spoudazo_wrapper .button{
 	float:none;
-	display:inline-block;
+}
+
+.spoudazo_wrapper .sp-popup-left,
+.spoudazo_wrapper .sp-popup-right{
+	width:50%;
+	padding:5px;
+	float:left;
+	box-sizing:border-box;
+}
+
+.spoudazo_wrapper .sp-popup-left{
+	text-align:left;
+}
+.spoudazo_wrapper .sp-popup-left h4{
+	font-size:23px;
+}
+
+.spoudazo_wrapper .sp-popup-bullets{
+	margin-bottom:5px;
+	margin-left:1.2em;
+	position:relative;
+}
+
+.spoudazo_wrapper .sp-popup-bullets i{
+	position:absolute;
+	left:-1.2em;
+	top:0.3em;
+}
+
+.spoudazo_wrapper .sp-popup-left .sp-popup-button {
+	width:100%;
+	margin:10px auto 0px;	
+}
+.spoudazo_wrapper .sp-popup-left .sp-popup-button .button:hover{
+	color:#FFF;
+}
+
+.spoudazo_wrapper .sp-popup-right img{
+	width:100%;
+	height:auto;
 }

@@ -33,6 +33,10 @@ class PlgUserSpoudazoLoginCookie extends JPlugin
 		
 		$cityID = SpoudazoLibrary::getUserSelectedCity($user->id);
 		
+		if(!$cityID){
+			$app->redirect(JRoute::_('index.php?option=com_users&view=profile&layout=edit'),'message','error');
+		}
+		
 		SpoudazoLibrary::set_cookie($cityID);
 
 		return true;

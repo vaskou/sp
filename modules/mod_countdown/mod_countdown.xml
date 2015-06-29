@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.1"
+	client="site"
+	method="upgrade">
+	<name>mod_countdown</name>
+	<author>Joomla! Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>3.0.0</version>
+	<files>
+		<filename module="mod_countdown">mod_countdown.php</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<folder>fields</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_countdown.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_countdown.ini</language>
+		<language tag="en-GB">en-GB.mod_countdown.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_countdown/fields">
+				 <field name="datetime" type="calendar" label="Select Date" description="" format="%d-%m-%Y" />
+				 <field name="link" type="url" label="Counter link" />
+				 <field name="daysLabel" type="text" label="Days Label" />
+				 <field name="dayLabel" type="text" label="Day Label" />
+				 <field name="hoursLabel" type="text" label="Hours Label" />
+				 <field name="hourLabel" type="text" label="Hour Label" />
+				 <field name="minutesLabel" type="text" label="Minutes Label" />
+				 <field name="minuteLabel" type="text" label="Minute Label" />
+				 <field name="secondsLabel" type="text" label="Seconds Label" />
+				 <field name="secondLabel" type="text" label="Second Label" />
+				 <field name="title" type="text" label="Title" />
+				 <field name="subtitle" type="text" label="Sub title" />
+				 <field name="theme" type="list" label="Select Theme">
+				 	<option value="1">Theme 1</option>
+					<option value="2">Theme 2</option>
+					<option value="3">Theme 3</option>
+					<option value="4">Theme 4</option>
+					<option value="5">Theme 5</option>
+					<option value="6">Theme 6</option>
+					<option value="7">Theme 7</option>
+					<option value="8">Theme 8</option>
+					<option value="9">Theme 9</option>
+					<option value="10">Theme 10</option>
+					<option value="11">Theme 11</option>
+					<option value="12">Theme 12</option>
+					<option value="13">Theme 13</option>
+				 </field>
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

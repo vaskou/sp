@@ -1,0 +1,73 @@
+/*Theme 13*/
+.ce-countdown--theme-13 {
+	background: #fff;
+	color: #000;
+	padding: 10px;
+	text-align:center;
+}
+
+.ce-countdown--theme-13 .ce-col {
+	display: inline-block;
+	margin: 0 20px;
+	padding-bottom: 20px;
+}
+
+.ce-countdown--theme-13 .ce-text{
+	margin-bottom:10px;
+}
+.ce-countdown--theme-13 .ce-text >*{
+	color:#eb1e00;
+}
+.ce-countdown--theme-13 .ce-number{
+	display:inline-block;
+	line-height:normal;
+}
+.ce-countdown--theme-13 .ce-number-days{
+	margin-right:13px;
+}
+.ce-countdown--theme-13 .ce-comma{
+	font-size:3em;
+	display: inline-block;
+  	position: relative;
+	top: -30px;
+}
+
+.ce-countdown--theme-13 .ce-days,
+.ce-countdown--theme-13 .ce-hours,
+.ce-countdown--theme-13 .ce-minutes,
+.ce-countdown--theme-13 .ce-seconds,
+.ce-countdown--theme-13 .ce-dseconds,
+.ce-countdown--theme-13 .ce-mseconds {
+	font-size: 3.5em;
+	color:#fff;
+	background:#000;
+	padding:0 3px;
+}
+.ce-countdown--theme-13 .ce-days{
+	background:#d81010;
+}
+
+.ce-countdown--theme-13 .ce-bar-days,
+.ce-countdown--theme-13 .ce-bar-hours,
+.ce-countdown--theme-13 .ce-bar-minutes,
+.ce-countdown--theme-13 .ce-bar-seconds,
+.ce-countdown--theme-13 .ce-bar-dseconds,
+.ce-countdown--theme-13 .ce-bar-mseconds {
+	display:none;
+}
+
+.ce-countdown--theme-13 .ce-dseconds,
+.ce-countdown--theme-13 .ce-mseconds {
+	display: inline-block;
+	width: 150px;
+}
+
+.ce-countdown--theme-13 .ce-days-label,
+.ce-countdown--theme-13 .ce-hours-label,
+.ce-countdown--theme-13 .ce-minutes-label,
+.ce-countdown--theme-13 .ce-seconds-label,
+.ce-countdown--theme-13 .ce-dseconds-label,
+.ce-countdown--theme-13 .ce-mseconds-label {
+	display: block;
+	text-transform: uppercase;
+}

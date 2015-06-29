@@ -64,7 +64,7 @@ if (!class_exists('plgSystemspoudazoredirects')) {
 			if($jinput->get('option')=='com_spoudazo'){
 				return;
 			}
-						
+	
 			$option = $jinput->get('option');
 			$view = $jinput->get('view');
 			$task = $jinput->get('task');
@@ -107,7 +107,14 @@ if (!class_exists('plgSystemspoudazoredirects')) {
 				$category->load($menuCategory);
 				if($category->parent==$userCity){
 					$catID=$category->id;
-					$link=str_replace('&amp;', '&', urldecode(JRoute::_(K2HelperRoute::getCategoryRoute($category->id.':'.urlencode($category->alias)))));
+					//$link=str_replace('&amp;', '&', urldecode(JRoute::_(K2HelperRoute::getCategoryRoute($category->id.':'.urlencode($category->alias)))));
+					$menu_redirected=$app->getMenu('site',array())->getItems(
+						array('link','parent_id'),
+						array('index.php?option=com_k2&view=itemlist&layout=category&task=category&id='.$category->id,$jinput->get('Itemid')),
+						true
+					);
+					$new_Itemid=$menu_redirected->id;
+					$link=str_replace('&amp;', '&', urldecode(JRoute::_('index.php?option=com_k2&view=itemlist&task=category&id='.$category->id.':'.urlencode($category->alias).'&Itemid='.$new_Itemid)));
 				}
 			}
 			
