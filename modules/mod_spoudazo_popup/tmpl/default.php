@@ -50,9 +50,9 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
             </div>
             <div class="spoudazo_popup_step_2" style="display:none;">
                 <h1><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONGRATULATIONS');?></h1>
+                <h4><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_2'); ?></h4>
                 <div class="">
                 	<div class="sp-popup-left">
-                    	<h4><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_2'); ?></h4>
                         <div class="sp-popup-bullets">
                         	<?php if($params->get('bullets_icon')){ echo '<i class="fa '.$params->get('bullets_icon').'"></i>';} ?>
 							<?php echo $params->get('bullet1'); ?>

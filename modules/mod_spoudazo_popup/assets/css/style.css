@@ -40,11 +40,19 @@
 	text-align:left;
 }
 .spoudazo_wrapper .sp-popup-left h4{
-	font-size:21px;
+	font-size:23px;
 }
 
 .spoudazo_wrapper .sp-popup-bullets{
-	margin:5px 0;
+	margin-bottom:5px;
+	margin-left:1.2em;
+	position:relative;
+}
+
+.spoudazo_wrapper .sp-popup-bullets i{
+	position:absolute;
+	left:-1.2em;
+	top:0.3em;
 }
 
 .spoudazo_wrapper .sp-popup-left .sp-popup-button {

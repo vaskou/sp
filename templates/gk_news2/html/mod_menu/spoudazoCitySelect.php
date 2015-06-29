@@ -102,8 +102,8 @@ foreach ($list as $i => &$item) :
 	}
 	if($i==$count-1){
 		echo '</div>';
-		echo '<li class="item-more more-less">More<i class="fa fa-angle-down"></i></li>';
-		echo '<li class="item-less more-less">Less<i class="fa fa-angle-up"></i></li>';
+		echo '<li class="item-more more-less">Περισσότερες πόλεις<i class="fa fa-angle-down"></i></li>';
+		echo '<li class="item-less more-less">Λιγότερες πόλεις<i class="fa fa-angle-up"></i></li>';
 	}
 	$j++;
 endforeach;
