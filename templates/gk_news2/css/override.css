@@ -65,8 +65,9 @@ ul.sigFreeClassic li.sigFreeThumb {
 
 /* Logo -------------------------------------------------------------------------------------------------------*/
 #gkLogoSmall {
-  width: 200px;
+  width: 185px;
   margin-right:8px;
+  margin-top:10px;
 }
 #gkLogo {
   height: 80px;
