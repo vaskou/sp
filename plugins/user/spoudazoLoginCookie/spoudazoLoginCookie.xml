@@ -6,4 +6,7 @@
 	<files>
 		<filename plugin="spoudazoLoginCookie">spoudazoLoginCookie.php</filename>
 	</files>
+	<languages>
+		<language tag="el-GR">el-GR.plg_user_spoudazoLoginCookie.ini</language>
+	</languages>
 </extension>

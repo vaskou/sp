@@ -31,6 +31,6 @@
 		<field name="woeid" type="text" label="WOEID" default="0" />
 	</fields>
 	<fields group="user">
-		<field name="city" type="sql" query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%&quot;citySelectisCity&quot;:&quot;1&quot;%' UNION SELECT '' as id,'None' as name ORDER BY name" default="" key_field="id" value_field="name" label="Select your city" description="" required="true" />
+		<field name="city" type="sql" query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%&quot;citySelectisCity&quot;:&quot;1&quot;%' UNION SELECT '' as id,'' as name ORDER BY name" default="" key_field="id" value_field="name" label="Επέλεξε την πόλη σου" description="" required="true" />
 	</fields>
 </extension>

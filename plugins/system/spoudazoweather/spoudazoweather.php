@@ -47,18 +47,15 @@ if (!class_exists('plgSystemspoudazoweather')) {
 			$user = JFactory::getUser();
 			$userID=$user->id;
 			
-			if( $user->get('guest') && $cookie->get('spoudazoCityID')!='' )
-			{
+			if( $user->get('guest') && $cookie->get('spoudazoCityID')!='' ){
 				$userCity=$cookie->get('spoudazoCityID');
-			}else
-			{
+			}else{
 				$userCity=SpoudazoLibrary::getUserSelectedCity($userID);
 			}
 			
 			$city=SpoudazoLibrary::getCity($userCity);
 			
-			if($city && $city['woeid']>'0')
-			{
+			if($city && $city['woeid']>'0'){
 				$mod_weather=JModuleHelper::getModule('mod_weather_gk4');
 				$params=json_decode($mod_weather->params,true);
 				$params['fullcity']=$city['name'];

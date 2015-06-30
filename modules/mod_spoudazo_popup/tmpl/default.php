@@ -32,7 +32,9 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
                         <button type="submit" class="validate button"><?php echo JText::_('MOD_SPOUDAZO_POPUP_SUBMIT'); ?></button>
                     </div>
                 </form>
-                <div class="sp-eula"><?php echo JText::_('MOD_SPOUDAZO_POPUP_EULA'); ?></div>
+                <div class="sp-eula">
+                	<a href="<?php echo JRoute::_('index.php?option=com_k2&view=item&layout=item&id=3029&Itemid=1004');?>"><?php echo JText::_('MOD_SPOUDAZO_POPUP_EULA'); ?></a> SpoudaZO.gr
+                </div>
                 <div class="sp-signin-register">
                 	<div>
                     	<?php echo JText::_('MOD_SPOUDAZO_POPUP_ALREADY_ACCOUNT'); ?>
