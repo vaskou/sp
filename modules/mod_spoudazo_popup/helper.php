@@ -2,17 +2,6 @@
 
 class modSpoudazoPopupHelper
 {
-    /**
-     * Retrieves the hello message
-     *
-     * @param   array  $params An object containing the module parameters
-     *
-     * @access public
-     */    
-    public static function getParams(&$params)
-    {
-        return $params;
-    }
 	
 	public function showPopup()
 	{
@@ -23,7 +12,7 @@ class modSpoudazoPopupHelper
 		
 		$hide_popup=false;
 		
-		if($cookie->get('spoudazoCookie')=='true' || $jinput->get('option')=='com_users' ){
+		if($cookie->get('spoudazoCookie')=='true' || $jinput->get('option')=='com_users' || $jinput->get('option')=='com_socialconnect'){
 			$hide_popup=true;
 		}
 		

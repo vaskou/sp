@@ -100,7 +100,7 @@ foreach ($list as $i => &$item) :
 	else {
 		echo '</li>';
 	}
-	if($i==$count-1){
+	if($j==$count-1){
 		echo '</div>';
 		echo '<li class="item-more more-less">Περισσότερες πόλεις<i class="fa fa-angle-down"></i></li>';
 		echo '<li class="item-less more-less">Λιγότερες πόλεις<i class="fa fa-angle-up"></i></li>';

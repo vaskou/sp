@@ -2,17 +2,6 @@
 
 class modSpoudazoWelcomeHelper
 {
-    /**
-     * Retrieves the hello message
-     *
-     * @param   array  $params An object containing the module parameters
-     *
-     * @access public
-     */    
-    public static function getParams(&$params)
-    {
-        return $params;
-    }
 	
 	public function getUserNameAndCity()
 	{

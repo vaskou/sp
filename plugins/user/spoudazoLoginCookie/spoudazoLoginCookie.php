@@ -40,4 +40,13 @@ class PlgUserSpoudazoLoginCookie extends JPlugin
 		return true;
 	}
 	
+	function onUserAfterSave($user, $isnew, $success, $msg)
+	{
+		if($user->id){
+			$cityID = SpoudazoLibrary::getUserSelectedCity($user->id);
+		
+			SpoudazoLibrary::set_cookie($cityID);
+		}
+	}
+	
 }

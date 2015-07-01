@@ -33,6 +33,10 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 
 		$cityID=$jinput->get('cityID','','INT');
 		
+		$redirect=$jinput->get('redirect','','STRING');
+		
+		$return_url=$jinput->get('return_url','','BASE64');
+		
 		$city=SpoudazoLibrary::getCity($cityID);
 		
 		if($city){
@@ -43,9 +47,13 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 		
 		SpoudazoLibrary::set_cookie($cityID);
 		
-		echo new JResponseJson( array('cityID'=>$cityID, 'response'=>$response) );
-		
-		jexit();
+		if($redirect=='true'){
+			$app->redirect(base64_decode($return_url));
+		}else{
+			echo new JResponseJson( array('cityID'=>$cityID, 'response'=>$response) );
+			
+			jexit();
+		}
 	}
 	
 	public function checkSubscriber()
