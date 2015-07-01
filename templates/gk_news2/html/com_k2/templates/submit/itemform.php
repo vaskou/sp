@@ -10,7 +10,19 @@
 // no direct access
 defined('_JEXEC') or die;
 
+
+
+$app = JFactory::getApplication();
+$Itemid = $app->input->get('Itemid','0','int');
+$menu =  $app->getMenu()->getItem($Itemid);
+$menuParams = $menu->params;
+
+
+			
 $document = JFactory::getDocument();
+
+$document->addStyleSheet( 'templates/gk_news2/css/override.css'  );
+
 $document->addScriptDeclaration("
 	Joomla.submitbutton = function(pressbutton){
 		if (pressbutton == 'cancel') {
@@ -52,16 +64,16 @@ $document->addScriptDeclaration("
 			</table>
 			<div id="k2FrontendEditToolbar">
 				<h2 class="header icon-48-k2">
-					<?php echo (JRequest::getInt('cid')) ? JText::_('K2_EDIT_ITEM') : JText::_('K2_ADD_ITEM'); ?>
+					<?php echo $menu->params->get('page_title'); ?>
 				</h2>
 			</div>
 			<div class="clr"></div>
 			<hr class="sep" />
-			<div id="k2FrontendPermissionsNotice">
+			<div id="k2FrontendPermissionsNotice" class="sp-hidden">
 				<p><?php echo $this->permissionsMessage; ?></p>
 			</div>
 			<?php endif; ?>
-			<div id="k2ToggleSidebarContainer"> <a href="#" id="k2ToggleSidebar"><?php echo JText::_('K2_TOGGLE_SIDEBAR'); ?></a> </div>
+			<div id="k2ToggleSidebarContainer" class="sp-hidden"> <a href="#" id="k2ToggleSidebar"><?php echo JText::_('K2_TOGGLE_SIDEBAR'); ?></a> </div>
 			<table cellspacing="0" cellpadding="0" border="0" class="adminFormK2Container table">
 				<tbody>
 					<tr>
@@ -75,7 +87,7 @@ $document->addScriptDeclaration("
 										<input class="text_area k2TitleBox" type="text" name="title" id="title" maxlength="250" value="<?php echo $this->row->title; ?>" />
 									</td>
 								</tr>
-								<tr>
+								<tr class="sp-hidden">
 									<td class="adminK2LeftCol">
 										<label for="alias"><?php echo JText::_('K2_TITLE_ALIAS'); ?></label>
 									</td>
@@ -83,7 +95,7 @@ $document->addScriptDeclaration("
 										<input class="text_area k2TitleAliasBox" type="text" name="alias" id="alias" maxlength="250" value="<?php echo $this->row->alias; ?>" />
 									</td>
 								</tr>
-								<tr>
+								<tr class="sp-hidden">
 									<td class="adminK2LeftCol">
 										<label><?php echo JText::_('K2_CATEGORY'); ?></label>
 									</td>
@@ -91,7 +103,7 @@ $document->addScriptDeclaration("
 										<?php echo $this->lists['categories']; ?>
 									</td>
 								</tr>
-								<tr>
+								<tr class="sp-hidden">
 									<td class="adminK2LeftCol">
 										<label><?php echo JText::_('K2_TAGS'); ?></label>
 									</td>
@@ -240,12 +252,16 @@ $document->addScriptDeclaration("
 											<td>
 												<input type="file" name="image" class="fileUpload" />
 												<i>(<?php echo JText::_('K2_MAX_UPLOAD_SIZE'); ?>: <?php echo ini_get('upload_max_filesize'); ?>)</i>
+												
+												<!--
 												<br />
 												<br />
-												<input type="text" name="existingImage" id="existingImageValue" class="text_area" readonly />
-												<input type="button" value="<?php echo JText::_('K2_BROWSE_SERVER'); ?>" id="k2ImageBrowseServer"  />
+												<input type="text" name="existingImage" id="existingImageValue" class="text_area sp-hidden" readonly />
+												<input type="button" value="<?php echo JText::_('K2_BROWSE_SERVER'); ?>" id="k2ImageBrowseServer"  class="sp-hidden" />
+												
 												<br />
 												<br />
+												-->
 											</td>
 										</tr>
 										<tr>

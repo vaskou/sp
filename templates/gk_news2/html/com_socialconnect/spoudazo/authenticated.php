@@ -52,7 +52,7 @@ $returnURL=$jinput->get('returnURL');
 					<a class="modal socialConnectAddLink" rel="{handler:'iframe',size:{x:990,y:550}}" href="index.php?Itemid=1009">Προσθήκη νέου Event</a>
 				</li>
 				<?php endif; ?>
-				<li>
+				<li class="sp-hidden">
 					<a class="socialConnectCommentsLink modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->K2Menu['comments']; ?>"><?php echo JText::_('JW_SC_MY_COMMENTS'); ?></a>
 				</li>
 				<?php endif; ?>

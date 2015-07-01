@@ -576,3 +576,13 @@ li.sp-events-item-info-category a:hover{
 	display:table;
 	width:100%;
 }
+
+/*K2 frontend editing */
+.sp-hidden{
+    display:none;
+}
+
+.icon-48-k2 {
+  background: none!important;
+  padding-left: 0 !important;
+}
