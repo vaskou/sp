@@ -11,11 +11,9 @@ defined('_JEXEC') or die;
 
 use Joomla\Registry\Registry;
 
-/**
- * Joomla User plugin
- *
- * @since  1.5
- */
+$lang = JFactory::getLanguage(); 
+$lang->load('plg_user_SpoudazoLoginCookie');
+
 class PlgUserSpoudazoLoginCookie extends JPlugin
 {
 	
@@ -34,12 +32,21 @@ class PlgUserSpoudazoLoginCookie extends JPlugin
 		$cityID = SpoudazoLibrary::getUserSelectedCity($user->id);
 		
 		if(!$cityID){
-			$app->redirect(JRoute::_('index.php?option=com_users&view=profile&layout=edit'),'message','error');
+			$app->redirect(JRoute::_('index.php?option=com_users&view=profile&layout=edit'),JText::_('SPOUDAZOLOGINCOOKIE_MESSAGE'),'error');
 		}
 		
 		SpoudazoLibrary::set_cookie($cityID);
 
 		return true;
+	}
+	
+	function onUserAfterSave($user, $isnew, $success, $msg)
+	{
+		if($user->id){
+			$cityID = SpoudazoLibrary::getUserSelectedCity($user->id);
+		
+			SpoudazoLibrary::set_cookie($cityID);
+		}
 	}
 	
 }

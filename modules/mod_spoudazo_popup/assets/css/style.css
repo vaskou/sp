@@ -67,3 +67,15 @@
 	width:100%;
 	height:auto;
 }
+
+.spoudazo_popup_newsletter .sp-email,
+.spoudazo_popup_newsletter .sp-city,
+.spoudazo_popup_newsletter .sp-popup-button,
+.spoudazo_popup_newsletter .sp-popup-newsletter-title{
+	float:right;
+	margin-left:10px;
+}
+
+.spoudazo_popup_newsletter .sp-city select{
+	visibility:visible;
+}

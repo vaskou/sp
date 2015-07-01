@@ -5,6 +5,7 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.formvalidator');
 
 JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css');
+JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js');
 ?>
 
 <div style="display:none;"> 
@@ -27,12 +28,14 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
                     </div>
                     <input type="hidden" name="option" value="com_spoudazo" />
                     <input type="hidden" name="task" value="spoudazo.addSubscriber" />
-                    <input type="hidden" name="return_url" value="<?php echo JRoute::_(JUri::getInstance()->toString()); ?>" />
+                    <input type="hidden" name="return_url" value="<?php echo base64_encode(JFactory::getURI()->toString()); ?>" />
                     <div class="sp-popup-button">
                         <button type="submit" class="validate button"><?php echo JText::_('MOD_SPOUDAZO_POPUP_SUBMIT'); ?></button>
                     </div>
                 </form>
-                <div class="sp-eula"><?php echo JText::_('MOD_SPOUDAZO_POPUP_EULA'); ?></div>
+                <div class="sp-eula">
+                	<a href="<?php echo JRoute::_('index.php?option=com_k2&view=item&layout=item&id=3029&Itemid=1004');?>"><?php echo JText::_('MOD_SPOUDAZO_POPUP_EULA'); ?></a> SpoudaZO.gr
+                </div>
                 <div class="sp-signin-register">
                 	<div>
                     	<?php echo JText::_('MOD_SPOUDAZO_POPUP_ALREADY_ACCOUNT'); ?>
@@ -45,7 +48,9 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
                     </div>
                 </div>
                 <div>
-                    <a href="#" id="spoudazo_not_again" onclick="fn_dont_show_again();"><?php echo JText::_('MOD_SPOUDAZO_POPUP_DO_NOT_SHOW_AGAIN');?></a>
+                    <a href="#" id="spoudazo_not_again" onclick="fn_dont_show_again('<?php echo JRoute::_('index.php?option=com_spoudazo&task=spoudazo.setCookie'); ?>');">
+						<?php echo JText::_('MOD_SPOUDAZO_POPUP_DO_NOT_SHOW_AGAIN');?>
+                    </a>
                 </div>
             </div>
             <div class="spoudazo_popup_step_2" style="display:none;">
@@ -79,53 +84,11 @@ JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css'
                 </div>
                 <div class="sp-signin-register">
 	                <a href="<?php echo JURI::getInstance()->toString(); ?>" ><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONTINUE');?></a><br />
-                    <a href="#" id="spoudazo_not_again" onclick="fn_dont_show_again();"><?php echo JText::_('MOD_SPOUDAZO_POPUP_DO_NOT_SHOW_AGAIN');?></a>
+                    <a href="#" id="spoudazo_not_again" onclick="fn_dont_show_again('<?php echo JRoute::_('index.php?option=com_spoudazo&task=spoudazo.setCookie'); ?>');">
+						<?php echo JText::_('MOD_SPOUDAZO_POPUP_DO_NOT_SHOW_AGAIN');?>
+                    </a>
                 </div>
             </div>
     	</div>
     </div>
 </div>
-
-<script>
-
-function fn_spoudazo_submit_form(el)
-{
-	event.preventDefault();
-	var form = jQuery(el),
-		formData = form.serialize(),
-		formMethod = form.attr("method");
-	jQuery.ajax({
-		type: formMethod,
-		data: formData,
-		timeout:10000,
-		success:function(response){
-			try{
-				response=jQuery.parseJSON(response);
-				console.log(response);
-				if(response.success){
-					fn_display_step_2();
-				}
-			}catch(e){
-				//console.log(e);
-			}
-		}
-	});
-}
-
-function fn_display_step_2()
-{
-	jQuery(".spoudazo_popup_step_1").slideToggle(500);
-	jQuery(".spoudazo_popup_step_2").slideToggle(500);
-}
-
-function fn_dont_show_again()
-{
-	jQuery.ajax({
-		url: '<?php echo JRoute::_('index.php?option=com_spoudazo&task=spoudazo.setCookie'); ?>',
-		success: function(response){
-			SqueezeBox.close();
-		}
-	});
-}
-
-</script>

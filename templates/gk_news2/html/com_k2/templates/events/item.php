@@ -92,6 +92,12 @@ if(
                    		 ): 
                    	?>
                    <ul>
+                   		<?php if($this->item->params->get('itemDateCreated')): ?>
+	                   	 <li><time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>"><?php echo JHTML::_('date', $this->item->created, 'F j, Y'); ?></time></li>
+	                   	 <?php endif; ?>
+	                   	 <?php if($params->get('itemAuthor')): ?>
+	                   	 <li><?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?>&nbsp;<?php if(empty($this->item->created_by_alias)): ?><a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a><?php else: ?><?php echo $this->item->author->name; ?><?php endif; ?></li>
+	                   	 <?php endif; ?>
 	                   	 <?php if($params->get('itemCategory')): ?>
 	                   	 <li><span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span> <a href="<?php echo $this->item->category->link; ?>"><?php echo $this->item->category->name; ?></a></li>
 	                   	 <?php endif; ?>
@@ -189,6 +195,14 @@ if(
                               <?php endif; ?>
                     </div>
                     <?php endif; ?>
+                    
+                    <?php if(($params->get('itemDateModified') && intval($this->item->modified)!=0)): ?>
+                    <div class="itemBottom">
+                              <?php if($params->get('itemDateModified') && intval($this->item->modified) != 0 && $this->item->created != $this->item->modified): ?>
+                              <small class="itemDateModified"> <?php echo JText::_('K2_LAST_MODIFIED_ON') . JHTML::_('date', $this->item->modified, JText::_('K2_DATE_FORMAT_LC2')); ?> </small>
+                              <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
 
 					<?php if ($addressField && trim ( $addressField->value )!='' ) : ?>
 
@@ -237,6 +251,35 @@ if(
                                                   <?php endforeach; ?>
                                         </ul>
                               </div>
+                              <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if(
+                    	(
+                    		$this->item->params->get('itemAuthorBlock') && 
+                    		empty($this->item->created_by_alias)
+                    	)
+                    ):?>
+                    <div class="itemAuthorData">
+                              <?php if($this->item->params->get('itemAuthorBlock') && empty($this->item->created_by_alias)):?>
+                              <div class="itemAuthorBlock">
+                                        <?php if($this->item->params->get('itemAuthorImage') && !empty($this->item->author->avatar)):?>
+                                        <div class="gkAvatar"> <img src="<?php echo $this->item->author->avatar; ?>" alt="<?php echo K2HelperUtilities::cleanHtml($this->item->author->name); ?>" /> </div>
+                                        <?php endif; ?>
+                                        <div class="itemAuthorDetails">
+                                                  <h3> <a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a> </h3>
+                                                  <?php if($params->get('itemAuthorDescription') && !empty($this->item->author->profile->description)):?>
+                                                  <p><?php echo $this->item->author->profile->description; ?></p>
+                                                  <?php endif; ?>
+                                                  <?php if($params->get('itemAuthorURL') && !empty($this->item->author->profile->url)):?>
+                                                  <span class="itemAuthorUrl"><?php echo JText::_('K2_WEBSITE'); ?> <a rel="me" href="<?php echo $this->item->author->profile->url; ?>" target="_blank" rel="nofollow"> <?php echo str_replace('http://','',$this->item->author->profile->url); ?> </a> </span>
+                                                  <?php endif; ?>
+                                                  <?php if($params->get('itemAuthorEmail')):?>
+                                                  <span class="itemAuthorEmail"><?php echo JText::_('K2_EMAIL'); ?> <?php echo JHTML::_('Email.cloak', $this->item->author->email); ?> </span>
+                                                  <?php endif; ?>
+                                        </div>
+                                        <?php echo $this->item->event->K2UserDisplay; ?> </div>
                               <?php endif; ?>
                     </div>
                     <?php endif; ?>
