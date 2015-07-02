@@ -10,6 +10,17 @@
 
 /* Here you can include your override CSS styles */
 
+/*General --------------------------------------------------------------------------------------*/
+
+.sp-nomargin,
+.sp-nomargin>p
+{
+    margin:0!important;
+}
+.sp-nopadding{
+    padding:0!important;
+}
+
 /* mycity K2 template --------------------------------------------------------------------------------------*/
 #k2Container.itemView.mycity{
 
@@ -63,6 +74,12 @@ ul.sigFreeClassic li.sigFreeThumb {
   padding: 0 19px;
 }
 
+.gkMenu > ul > li.last > a{
+    border-right:0;
+}
+#gkFixedMenu #gkMainMenu {
+  border-left: 0;
+}
 /* Logo -------------------------------------------------------------------------------------------------------*/
 #gkLogoSmall {
   width: 185px;
@@ -76,6 +93,7 @@ ul.sigFreeClassic li.sigFreeThumb {
 }
 
 #gkLogoSmall:hover img, #gkLogo:hover img{
+    
     -webkit-filter: grayscale(100%);
     -webkit-filter: grayscale(1);
     filter: grayscale(100%);
@@ -111,6 +129,8 @@ ul.sigFreeClassic li.sigFreeThumb {
 #gkUpdates p{
     margin:0;
 }
+/* gkHighlights ------------------------------------------------------------------------------------------------------*/
+
 
 /* Banners -------------------------------------------------------------------------------------------------------*/
 div.banneritem {
@@ -298,7 +318,7 @@ overflow:hidden;
 	margin-right:0;
 }
 #gkSocial a{
-	width: 54px;
+	width: 52px;
 	text-align: center;
 	border-left: 1px solid #ddd;
 	padding:0;
