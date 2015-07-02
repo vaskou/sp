@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\Registry\Registry;
 
 $lang = JFactory::getLanguage(); 
-$lang->load('plg_user_SpoudazoLoginCookie');
+$lang->load('plg_user_spoudazoLoginCookie');
 
 class PlgUserSpoudazoLoginCookie extends JPlugin
 {

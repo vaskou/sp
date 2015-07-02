@@ -34,7 +34,10 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                     </div>
                 </form>
                 <div class="sp-eula">
-                	<a href="<?php echo JRoute::_('index.php?option=com_k2&view=item&layout=item&id=3029&Itemid=1004');?>"><?php echo JText::_('MOD_SPOUDAZO_POPUP_EULA'); ?></a> SpoudaZO.gr
+                	<?php 
+						$link='<a href="'.JRoute::_('index.php?option=com_k2&view=item&layout=item&id=3029&Itemid=1004').'" target="_blank">'.JText::_('MOD_SPOUDAZO_POPUP_TERMS').'</a>'; 
+						echo JText::sprintf('MOD_SPOUDAZO_POPUP_EULA',$link);
+					?>
                 </div>
                 <div class="sp-signin-register">
                 	<div>
