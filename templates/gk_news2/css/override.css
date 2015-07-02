@@ -93,7 +93,6 @@ ul.sigFreeClassic li.sigFreeThumb {
 }
 
 #gkLogoSmall:hover img, #gkLogo:hover img{
-    
     -webkit-filter: grayscale(100%);
     -webkit-filter: grayscale(1);
     filter: grayscale(100%);
@@ -107,6 +106,9 @@ ul.sigFreeClassic li.sigFreeThumb {
 }
 
 /* Highlighter -------------------------------------------------------------------------------------------------------*/
+#gkHighlights{
+	width:55.25%;
+}
 .gkHighlighterInterface span.text {
   margin: 0 0 0 15px;
 }
@@ -129,8 +131,6 @@ ul.sigFreeClassic li.sigFreeThumb {
 #gkUpdates p{
     margin:0;
 }
-/* gkHighlights ------------------------------------------------------------------------------------------------------*/
-
 
 /* Banners -------------------------------------------------------------------------------------------------------*/
 div.banneritem {
