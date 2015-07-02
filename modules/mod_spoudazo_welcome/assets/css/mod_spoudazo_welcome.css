@@ -44,11 +44,18 @@
 .spoudazo-login > i{
 	display:block;
 }
+.spoudazo-login > .fa-user{
+	font-size:1.6em;	
+}
+.spoudazo-login > .fa-sign-in{
+	padding-bottom:4px;
+}
 .spoudazo-login > span{
 	display:block;
-	padding-top:7px;
+	/*padding-top:7px;*/
 }
-.spoudazo-login:hover{
+.spoudazo-login:hover,
+.spoudazo-login:active{
 	color:#fff;
 }
 .spoudazo-login:hover span{
