@@ -1,5 +1,6 @@
 #gkUpdates{
 	padding:0 !important;
+	width:26.25%;
 }
 .spoudazo-welcome{
 	background:#008ce6;
@@ -17,7 +18,7 @@
 }
 .spoudazo-message{
 	float:left;
-	width:68%;
+	width:63%;
 	line-height:normal;
 }
 .spoudazo-message > div{
@@ -38,21 +39,15 @@
 	display:inline-block;
 	color:#fff;
 	padding:5px;
-	width:30%;
+	width:35%;
 	box-sizing:border-box;
 }
 .spoudazo-login > i{
 	display:block;
 }
-.spoudazo-login > .fa-user{
-	font-size:1.6em;	
-}
-.spoudazo-login > .fa-sign-in{
-	padding-bottom:4px;
-}
 .spoudazo-login > span{
 	display:block;
-	/*padding-top:7px;*/
+	padding-top:4px;
 }
 .spoudazo-login:hover,
 .spoudazo-login:active{

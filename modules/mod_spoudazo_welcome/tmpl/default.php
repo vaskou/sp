@@ -28,7 +28,7 @@ $isGuest = $user->get('guest');
         </div>
     </div>	
 	<a class="spoudazo-login" href="<?php echo JRoute::_('index.php?option=com_socialconnect&view=login&Itemid='.$menuID.'&returnURL='.base64_encode(JFactory::getURI()->toString()));?>">
-    	<i class="fa fa-<?php echo ($isGuest)?'sign-in fa-2x':'user'; ?>"></i>
+    	<i class="fa fa-2x fa-<?php echo ($isGuest)?'sign-in ':'user'; ?>"></i>
 		<span><?php echo ($isGuest)?JText::_('JLOGIN'):JText::_('MOD_SPOUDAZO_WELCOME_USER_MENU'); ?></span>
 	</a>
     
