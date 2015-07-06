@@ -67,7 +67,20 @@
 	width:100%;
 	height:auto;
 }
+.spoudazo_wrapper .itemSocialSharing{
+	position:relative;
+	padding:10px 0;
+}
+.spoudazo_wrapper .itemSocialSharing > div{
+	display:inline-block;
+	padding:0 10px;
+	position:relative;
+}
+.spoudazo_wrapper .itemSocialSharing .itemFacebookButton{
+	top:-6px;
+}
 
+/*Newsletter*/
 .spoudazo_popup_newsletter .sp-email,
 .spoudazo_popup_newsletter .sp-city,
 .spoudazo_popup_newsletter .sp-popup-button,
