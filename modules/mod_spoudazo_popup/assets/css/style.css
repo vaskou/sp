@@ -32,7 +32,7 @@
 .spoudazo_wrapper .sp-popup-right{
 	width:50%;
 	padding:5px;
-	float:left;
+	float:right;
 	box-sizing:border-box;
 }
 
@@ -76,6 +76,9 @@
 	padding:0 10px;
 	position:relative;
 }
+.spoudazo_wrapper .itemSocialSharing .itemTwitterButton{
+	width:78px !important;
+}
 .spoudazo_wrapper .itemSocialSharing .itemFacebookButton{
 	top:-6px;
 }
@@ -91,4 +94,12 @@
 
 .spoudazo_popup_newsletter .sp-city select{
 	visibility:visible;
+}
+
+@media (max-width:639px){
+.spoudazo_wrapper .sp-popup-left,
+.spoudazo_wrapper .sp-popup-right{
+	width:auto;
+	float:none;
+}	
 }

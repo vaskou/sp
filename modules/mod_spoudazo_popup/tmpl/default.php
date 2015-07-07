@@ -61,6 +61,9 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                 <h1><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONGRATULATIONS');?></h1>
                 <h4><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_2'); ?></h4>
                 <div class="">
+                	<div class="sp-popup-right">
+                    	<img src="<?php echo $params->get('popup_image');?>" />
+                    </div>
                 	<div class="sp-popup-left">
                         <div class="sp-popup-bullets">
                         	<?php if($params->get('bullets_icon')){ echo '<i class="fa '.$params->get('bullets_icon').'"></i>';} ?>
@@ -81,9 +84,6 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                         <div class="sp-popup-button">
 	                        <a href="<?php echo JRoute::_('index.php?option=com_users&view=registration');?>" class="button"><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_NOW'); ?></a>
                         </div>
-                    </div>
-                    <div class="sp-popup-right">
-                    	<img src="<?php echo $params->get('popup_image');?>" />
                     </div>
                 </div>
                 <div class="sp-signin-register">
