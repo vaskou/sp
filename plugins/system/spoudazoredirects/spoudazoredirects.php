@@ -45,8 +45,9 @@ if (!class_exists('plgSystemspoudazoredirects')) {
         /**
          * This event is triggered after the framework has loaded and the application initialise method has been called.
          */
-        public function onAfterRoute() {
-			
+        public function onAfterRoute() 
+		{
+			if (!class_exists('SpoudazoLibrary')) {return false;}
 			$app = JFactory::getApplication();
 			$jinput = $app->input;
 			$cookie=$app->input->cookie;

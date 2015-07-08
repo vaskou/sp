@@ -75,4 +75,11 @@ class SpoudazoLibrary {
 		
 		return false;
 	}
+	
+	public function getCustomAuthorName($author)
+	{
+		$author_name = (in_array('13',$author->groups))?'SpoudaZO Team':$author->name;
+		
+		return $author_name;
+	}
 }

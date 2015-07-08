@@ -19,7 +19,7 @@ class PlgUserSpoudazoLoginCookie extends JPlugin
 	
 	function onUserAfterLogin($options)
 	{
-
+		if (!class_exists('SpoudazoLibrary')) {return false;}
 		$app = JFactory::getApplication();
 		
 		//Check if we are in frontend
@@ -42,6 +42,7 @@ class PlgUserSpoudazoLoginCookie extends JPlugin
 	
 	function onUserAfterSave($user, $isnew, $success, $msg)
 	{
+		if (!class_exists('SpoudazoLibrary')) {return false;}
 		if($user->id){
 			$cityID = SpoudazoLibrary::getUserSelectedCity($user->id);
 		

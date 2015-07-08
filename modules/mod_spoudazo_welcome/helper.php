@@ -5,6 +5,7 @@ class modSpoudazoWelcomeHelper
 	
 	public function getUserNameAndCity()
 	{
+		if (!class_exists('SpoudazoLibrary')) {return false;}
 		$app = JFactory::getApplication();
 		$cookie=$app->input->cookie;
 		

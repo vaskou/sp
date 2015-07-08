@@ -145,7 +145,15 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 						<?php endif; ?>
 						
 						<?php if($this->item->params->get('catItemAuthor')): ?>
-						<li><?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> <?php if(isset($this->item->author->link) && $this->item->author->link): ?><a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a><?php else: ?><?php echo $this->item->author->name; ?><?php endif; ?> </li>
+						<li>
+                        	<?php $author_name = SpoudazoLibrary::getCustomAuthorName($this->item->author);?>
+							<?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> 
+							<?php if(isset($this->item->author->link) && $this->item->author->link): ?>
+                            	<a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $author_name; ?></a>
+							<?php else: ?>
+								<?php echo $author_name; ?>
+							<?php endif; ?> 
+                        </li>
 						<?php endif; ?>
 
 						<?php if($this->item->params->get('catItemHits')): ?>

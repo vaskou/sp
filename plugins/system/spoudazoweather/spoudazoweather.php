@@ -37,6 +37,7 @@ if (!class_exists('plgSystemspoudazoweather')) {
 		
 		public function onAfterDispatch()
 		{
+			if (!class_exists('SpoudazoLibrary')) {return false;}
 			$app = JFactory::getApplication();
 			$cookie=$app->input->cookie;
 			
