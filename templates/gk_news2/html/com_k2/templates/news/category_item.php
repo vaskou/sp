@@ -17,6 +17,12 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 		<div class="itemBlock">	
 				<?php if($this->item->params->get('catItemImage') && !empty($this->item->image)): ?>
 				<div class="itemImageBlock"> <a class="itemImage" href="<?php echo $this->item->link; ?>" title="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>"> <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" /> </a> </div>
+                <?php else:?>
+                <div class="itemImageBlock">
+                	<a class="itemImage" href="<?php echo $this->item->link; ?>" title="<?php echo K2HelperUtilities::cleanHtml($this->item->title); ?>">
+                    	<img src="<?php echo JRoute::_('images/noimage-180x150.png'); ?>" alt="<?php echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" />
+                    </a>
+                </div>
 				<?php endif; ?>
 				<div class="sp-news-item-content">
 				<header>
@@ -139,7 +145,15 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 						<?php endif; ?>
 						
 						<?php if($this->item->params->get('catItemAuthor')): ?>
-						<li><?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> <?php if(isset($this->item->author->link) && $this->item->author->link): ?><a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a><?php else: ?><?php echo $this->item->author->name; ?><?php endif; ?> </li>
+						<li>
+                        	<?php $author_name = SpoudazoLibrary::getCustomAuthorName($this->item->author);?>
+							<?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> 
+							<?php if(isset($this->item->author->link) && $this->item->author->link): ?>
+                            	<a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $author_name; ?></a>
+							<?php else: ?>
+								<?php echo $author_name; ?>
+							<?php endif; ?> 
+                        </li>
 						<?php endif; ?>
 
 						<?php if($this->item->params->get('catItemHits')): ?>

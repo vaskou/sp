@@ -71,3 +71,26 @@
 	display: block;
 	text-transform: uppercase;
 }
+
+@media (max-width:380px){
+.ce-countdown--theme-13 .ce-days, 
+.ce-countdown--theme-13 .ce-hours, 
+.ce-countdown--theme-13 .ce-minutes, 
+.ce-countdown--theme-13 .ce-seconds, 
+.ce-countdown--theme-13 .ce-dseconds, 
+.ce-countdown--theme-13 .ce-mseconds{
+	font-size:2.5em;
+}
+.ce-countdown--theme-13 .ce-days-label,
+.ce-countdown--theme-13 .ce-hours-label,
+.ce-countdown--theme-13 .ce-minutes-label,
+.ce-countdown--theme-13 .ce-seconds-label,
+.ce-countdown--theme-13 .ce-dseconds-label,
+.ce-countdown--theme-13 .ce-mseconds-label {
+	font-size:0.8em;
+}
+.ce-countdown--theme-13 .ce-comma{
+	font-size:2.5em;
+	top: -22px;
+}
+}

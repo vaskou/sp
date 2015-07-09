@@ -6,16 +6,17 @@ JHtml::_('behavior.formvalidator');
 
 JHtml::stylesheet(JURI::base().'modules/mod_spoudazo_popup/assets/css/style.css');
 JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js');
+
 ?>
 
 <div style="display:none;"> 
     <div id="spoudazo_popup">
     	<div class="spoudazo_wrapper">
-            <div class="spoudazo_popup_step_1">
+            <div class="spoudazo_popup_step_1" style="display:block;">
             	<h1><?php echo JText::_('MOD_SPOUDAZO_POPUP_TITLE');?></h1>
                 <img src="http://spoudazo.yes-internet.gr/images/logo/logo.png" alt="SpoudaZO.gr">
                 <div class="sp-popup-subtitle"><?php echo JText::_('MOD_SPOUDAZO_POPUP_SUBTITLE');?></div>
-                <form action="<?php echo JRoute::_('index.php'); ?>" method="post" id="select-city-form" class="form-inline form-validate" onsubmit="fn_spoudazo_submit_form(this);">
+                <form action="<?php echo JRoute::_('index.php'); ?>" method="post" id="select-city-form" class="form-inline form-validate" onsubmit="return fn_spoudazo_submit_form(this,event)">
                     <div class="sp-city">
                         <select id="city" name="cityID" required="required">
                             <?php foreach($cities as $city){?>
@@ -60,6 +61,9 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                 <h1><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONGRATULATIONS');?></h1>
                 <h4><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_2'); ?></h4>
                 <div class="">
+                	<div class="sp-popup-right">
+                    	<img src="<?php echo $params->get('popup_image');?>" />
+                    </div>
                 	<div class="sp-popup-left">
                         <div class="sp-popup-bullets">
                         	<?php if($params->get('bullets_icon')){ echo '<i class="fa '.$params->get('bullets_icon').'"></i>';} ?>
@@ -81,15 +85,37 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
 	                        <a href="<?php echo JRoute::_('index.php?option=com_users&view=registration');?>" class="button"><?php echo JText::_('MOD_SPOUDAZO_POPUP_BECOME_MEMBER_NOW'); ?></a>
                         </div>
                     </div>
-                    <div class="sp-popup-right">
-                    	<img src="<?php echo $params->get('popup_image');?>" />
-                    </div>
                 </div>
                 <div class="sp-signin-register">
 	                <a href="<?php echo JURI::getInstance()->toString(); ?>" ><?php echo JText::_('MOD_SPOUDAZO_POPUP_CONTINUE');?></a><br />
                     <a href="#" id="spoudazo_not_again" onclick="fn_dont_show_again('<?php echo JRoute::_('index.php?option=com_spoudazo&task=spoudazo.setCookie'); ?>');">
 						<?php echo JText::_('MOD_SPOUDAZO_POPUP_DO_NOT_SHOW_AGAIN');?>
                     </a>
+                </div>
+                
+                <div class="itemSocialSharing">
+                    <div class="itemTwitterButton">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"><?php echo JText::_('K2_TWEET'); ?></a> 
+                    </div>
+
+                    <div class="itemFacebookButton"> 
+                      
+                      <div class="fb-like" data-send="true" data-layout="button_count"> </div>
+                    </div>
+                    
+                    <div class="itemGooglePlusOneButton">
+                      <div class="g-plusone" data-size="medium"></div>
+                      
+                      <script type="text/javascript">
+                        window.___gcfg = {lang: 'en'};
+                      
+                        (function() {
+                          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                          po.src = 'https://apis.google.com/js/platform.js';
+                          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                      </script>
+                    </div>
                 </div>
             </div>
     	</div>

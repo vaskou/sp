@@ -32,7 +32,7 @@
 .spoudazo_wrapper .sp-popup-right{
 	width:50%;
 	padding:5px;
-	float:left;
+	float:right;
 	box-sizing:border-box;
 }
 
@@ -67,7 +67,23 @@
 	width:100%;
 	height:auto;
 }
+.spoudazo_wrapper .itemSocialSharing{
+	position:relative;
+	padding:10px 0;
+}
+.spoudazo_wrapper .itemSocialSharing > div{
+	display:inline-block;
+	padding:0 10px;
+	position:relative;
+}
+.spoudazo_wrapper .itemSocialSharing .itemTwitterButton{
+	width:78px !important;
+}
+.spoudazo_wrapper .itemSocialSharing .itemFacebookButton{
+	top:-6px;
+}
 
+/*Newsletter*/
 .spoudazo_popup_newsletter .sp-email,
 .spoudazo_popup_newsletter .sp-city,
 .spoudazo_popup_newsletter .sp-popup-button,
@@ -78,4 +94,12 @@
 
 .spoudazo_popup_newsletter .sp-city select{
 	visibility:visible;
+}
+
+@media (max-width:639px){
+.spoudazo_wrapper .sp-popup-left,
+.spoudazo_wrapper .sp-popup-right{
+	width:auto;
+	float:none;
+}	
 }

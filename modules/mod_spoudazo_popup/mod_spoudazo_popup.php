@@ -5,15 +5,21 @@ defined('_JEXEC') or die;
 // Include the syndicate functions only once
 require_once dirname(__FILE__) . '/helper.php';
 
-$app = JFactory::getApplication();
+if (!class_exists('SpoudazoLibrary')) {return false;}
 
-$cookie=$app->input->cookie;
-$cityID = $cookie->get('spoudazoCityID');
-$city = SpoudazoLibrary::getCity($cityID);
+$app = JFactory::getApplication();
 
 $user = JFactory::getUser();
 $isGuest = $user->get('guest');
 $username = $user->get('name');
+
+$cookie=$app->input->cookie;
+if($isGuest){
+	$cityID = $cookie->get('spoudazoCityID');
+}else{
+	$cityID = SpoudazoLibrary::getUserSelectedCity($user->get('id'));
+}
+$city = SpoudazoLibrary::getCity($cityID);
 
 modSpoudazoPopupHelper::showPopup();
 

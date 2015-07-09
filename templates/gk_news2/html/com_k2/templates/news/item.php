@@ -11,7 +11,6 @@ defined('_JEXEC') or die;
 // Code used to generate the page elements
 $params = $this->item->params;
 $k2ContainerClasses = (($this->item->featured) ? ' itemIsFeatured' : '') . ($params->get('pageclass_sfx')) ? ' '.$params->get('pageclass_sfx') : ''; 
-$k2ContainerClasses .= ' '.basename(__DIR__); 
 
 $app = JFactory::getApplication();
 $tpl = $app->getTemplate(true);
@@ -92,19 +91,19 @@ if(
                    		 ): 
                    	?>
                    <ul>
-                   		<?php if($this->item->params->get('itemDateCreated')): ?>
+	                   	<?php if($this->item->params->get('itemDateCreated')): ?>
 	                   	 <li><time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>"><?php echo JHTML::_('date', $this->item->created, 'F j, Y'); ?></time></li>
 	                   	 <?php endif; ?>
 	                   	 <?php if($params->get('itemAuthor')): ?>
 	                   	 <li>
-                          <?php $author_name = SpoudazoLibrary::getCustomAuthorName($this->item->author);?>
-							            <?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> 
-							            <?php if(isset($this->item->author->link) && $this->item->author->link): ?>
-                              <a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $author_name; ?></a>
-							            <?php else: ?>
-								              <?php echo $author_name; ?>
-							            <?php endif; ?> 
-                       </li>
+                        	<?php $author_name = SpoudazoLibrary::getCustomAuthorName($this->item->author);?>
+							<?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> 
+							<?php if(isset($this->item->author->link) && $this->item->author->link): ?>
+                            	<a rel="author" href="<?php echo $this->item->author->link; ?>"><?php echo $author_name; ?></a>
+							<?php else: ?>
+								<?php echo $author_name; ?>
+							<?php endif; ?> 
+                        </li>
 	                   	 <?php endif; ?>
 	                   	 <?php if($params->get('itemCategory')): ?>
 	                   	 <li><span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span> <a href="<?php echo $this->item->category->link; ?>"><?php echo $this->item->category->name; ?></a></li>
@@ -157,39 +156,9 @@ if(
                     <div class="itemFullText"> <?php echo (!empty($this->item->fulltext)) ? $this->item->fulltext : $this->item->introtext; ?> </div>
                     <?php endif; ?>
                     
-
- 
-                    <?php if($params->get('itemExtraFields') && count($this->item->extra_fields)): ?>
-                    <div class="itemExtraFields">
-							<ul>
-							<?php foreach ($this->item->extra_fields as $key=>$extraField): ?>
-			
-							<?php if($extraField->value != ''): ?>
-							<li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?> alias-<?php echo $extraField->alias; ?>">
-									  <?php if($extraField->type == 'header'): ?>
-									  <h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
-									  <?php else: ?>
-											<?php if($extraField->alias != 'iframeurl'): ?>
-												 <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
-											<?php endif; ?>
-											<?php if($extraField->alias == 'iframeurl'): ?>
-												 <?php $iframeurlField = $extraField ;?>
-												 <?php continue;?>
-											<?php endif; ?>
-											<?php if($extraField->alias == 'address'): ?>
-												 <?php $addressField = $extraField ;?>
-											<?php endif; ?>
-										<?php endif; ?>
-							</li>
-							<?php endif; ?>
-							<?php endforeach; ?>
-							</ul>
-                    </div>
-                    <?php endif; ?>
-                    
-					<?php if($params->get('itemVideo') && !empty($this->item->video)): ?>
-                    <div class="itemVideoBlock" id="itemVideoAnchor" style="text-align:left">
-                              <h3><?php echo JText::_('VIDEO'); ?></h3>
+                    <?php if($params->get('itemVideo') && !empty($this->item->video)): ?>
+                    <div class="itemVideoBlock" id="itemVideoAnchor">
+                              <h3><?php echo JText::_('K2_MEDIA'); ?></h3>
                               <?php if($this->item->videoType=='embedded'): ?>
                               <div class="itemVideoEmbedded"> <?php echo $this->item->video; ?> </div>
                               <?php else: ?>
@@ -211,28 +180,25 @@ if(
                               <?php endif; ?>
                     </div>
                     <?php endif; ?>
-
-					<?php if ($addressField && trim ( $addressField->value )!='' ) : ?>
-
-					<div class="address_field embed-container">
-						<iframe
-						  width="600"
-						  height="450"
-						  frameborder="0" style="border:0"
-						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGMxeMcTmXMoV-ck4otVAY88TmnvvRxrI&q=<?php echo trim ( $addressField->value );?>">
-						</iframe>
-					</div>
-					<?php endif;?>
-					
-					
-					<?php if ($iframeurlField) : ?>
-					<div class="iframeurl_field fieldContainer">
-						<iframe style="border:0; width:100%;max-width: 100%; height:600px" src="<?php echo $iframeurlField->value; ?>"></iframe>
-					</div>
-					<?php endif;?>
-					
-					<?php echo $this->item->event->AfterDisplayContent; ?> <?php echo $this->item->event->K2AfterDisplayContent; ?>
-					
+                    
+                    <?php if($params->get('itemExtraFields') && count($this->item->extra_fields)): ?>
+                    <div class="itemExtraFields">
+                              <ul>
+                                        <?php foreach ($this->item->extra_fields as $key=>$extraField): ?>
+                                        <?php if($extraField->value != ''): ?>
+                                        <li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
+                                                  <?php if($extraField->type == 'header'): ?>
+                                                  <h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
+                                                  <?php else: ?>
+                                                  <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
+                                                  <?php endif; ?>
+                                        </li>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                              </ul>
+                    </div>
+                    <?php endif; ?>
+                    <?php echo $this->item->event->AfterDisplayContent; ?> <?php echo $this->item->event->K2AfterDisplayContent; ?>
                     <?php if(
 						$params->get('itemTags') ||
 						$params->get('itemAttachments')
@@ -262,7 +228,7 @@ if(
                               <?php endif; ?>
                     </div>
                     <?php endif; ?>
-                    
+
                     <?php if(
                     	(
                     		$this->item->params->get('itemAuthorBlock') && 
@@ -322,7 +288,7 @@ if(
 				<?php endif; ?>
 
 				<?php if($this->item->params->get('itemRelatedAuthor')): ?>
-				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author);; ?></a></div>
+				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author); ?></a></div>
 				<?php endif; ?>
 
 				

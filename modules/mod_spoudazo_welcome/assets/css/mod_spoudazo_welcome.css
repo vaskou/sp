@@ -1,6 +1,6 @@
 #gkUpdates{
 	padding:0 !important;
-	width:26.25%;
+//	width:26.25%;
 }
 .spoudazo-welcome{
 	background:#008ce6;
@@ -18,11 +18,12 @@
 }
 .spoudazo-message{
 	float:left;
-	width:63%;
+	width:61%;
 	line-height:normal;
 }
 .spoudazo-message > div{
-	margin:9px 7px;
+//	margin:9px 7px;
+	margin:9px 2px 9px 5px;
 }
 .spoudazo-hello{
 	white-space: nowrap;
@@ -38,9 +39,10 @@
 .spoudazo-login{
 	display:inline-block;
 	color:#fff;
-	padding:5px;
-	width:35%;
+	padding:5px 5px 0 0;
+	width:39%;
 	box-sizing:border-box;
+	float:left;
 }
 .spoudazo-login > i{
 	display:block;
