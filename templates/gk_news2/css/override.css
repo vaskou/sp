@@ -699,3 +699,7 @@ li.sp-events-item-info-category a:hover{
 	left:0px !important;
 }
 }
+
+
+/* Contact Form -------------------------------*/
+.contact h3{display:none;}
