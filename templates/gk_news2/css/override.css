@@ -200,7 +200,11 @@ div.banneritem img{
 }
 
 /*GK NEWS PRO ---------------------------------------------------------------------------------------------------*/
-
+.box .header{
+    
+    font-size: 22px;
+    font-size: 26px;
+}
 .sp-slideshow-module.box{
     padding:0;
 }
@@ -711,7 +715,7 @@ li.sp-events-item-info-category a:hover{
 .k2TagCloudBlock a {
   border: 1px solid #eb1e00;
   background: #eb1e00;
-  color: #ffffff;
+  color: #ffffff!important;
 }
 .k2TagCloudBlock a:hover{
   border: 1px solid #eb1e00;
