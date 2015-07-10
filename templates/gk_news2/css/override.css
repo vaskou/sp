@@ -703,3 +703,18 @@ li.sp-events-item-info-category a:hover{
 
 /* Contact Form -------------------------------*/
 .contact h3{display:none;}
+
+/*Tag cloud ----------------------------------------*/
+.k2TagCloudBlock {
+    text-align:center;
+}
+.k2TagCloudBlock a {
+  border: 1px solid #eb1e00;
+  background: #eb1e00;
+  color: #ffffff;
+}
+.k2TagCloudBlock a:hover{
+  border: 1px solid #eb1e00;
+  background: #ffffff;
+  color: #eb1e00;
+}
