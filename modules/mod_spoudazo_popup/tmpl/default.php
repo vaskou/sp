@@ -95,7 +95,7 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                 
                 <div class="itemSocialSharing">
                     <div class="itemTwitterButton">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"><?php echo JText::_('K2_TWEET'); ?></a> 
+                        <a href="https://twitter.com/share" class="twt_btn" data-count="horizontal"><?php echo JText::_('K2_TWEET'); ?></a> 
                     </div>
 
                     <div class="itemFacebookButton"> 
