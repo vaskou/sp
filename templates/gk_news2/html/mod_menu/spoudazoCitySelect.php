@@ -34,7 +34,7 @@ if($remove_index){
 }
 $j=0;
 foreach ($list as $i => &$item) :
-	if($j==5){
+	if($j==10){
 		echo '<div class="menu-hidden">';
 	}
 	$class = 'item-'.$item->id;
@@ -100,7 +100,7 @@ foreach ($list as $i => &$item) :
 	else {
 		echo '</li>';
 	}
-	if($j==$count-1){
+	if($j==$count-1 && $j>=10){
 		echo '</div>';
 		echo '<li class="item-more more-less">Περισσότερες πόλεις<i class="fa fa-angle-down"></i></li>';
 		echo '<li class="item-less more-less">Λιγότερες πόλεις<i class="fa fa-angle-up"></i></li>';

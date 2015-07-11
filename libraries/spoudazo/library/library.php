@@ -78,7 +78,7 @@ class SpoudazoLibrary {
 	
 	public function getCustomAuthorName($author)
 	{
-		$author_name = (in_array('13',$author->groups))?'SpoudaZO Team':$author->name;
+		$author_name = (!empty($author->groups) && in_array('13',$author->groups))?'SpoudaZO Team':$author->name;
 		
 		return $author_name;
 	}
