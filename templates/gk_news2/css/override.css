@@ -200,7 +200,11 @@ div.banneritem img{
 }
 
 /*GK NEWS PRO ---------------------------------------------------------------------------------------------------*/
-
+.box .header{
+    
+    font-size: 22px;
+    font-size: 26px;
+}
 .sp-slideshow-module.box{
     padding:0;
 }
@@ -698,4 +702,23 @@ li.sp-events-item-info-category a:hover{
 #sbox-window{
 	left:0px !important;
 }
+}
+
+
+/* Contact Form -------------------------------*/
+.contact h3{display:none;}
+
+/*Tag cloud ----------------------------------------*/
+.k2TagCloudBlock {
+    text-align:center;
+}
+.k2TagCloudBlock a {
+  border: 1px solid #eb1e00;
+  background: #eb1e00;
+  color: #ffffff!important;
+}
+.k2TagCloudBlock a:hover{
+  border: 1px solid #eb1e00;
+  background: #ffffff;
+  color: #eb1e00;
 }

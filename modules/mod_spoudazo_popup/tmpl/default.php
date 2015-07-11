@@ -95,16 +95,16 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                 
                 <div class="itemSocialSharing">
                     <div class="itemTwitterButton">
-                        <a href="https://twitter.com/share" class="twt_btn" data-count="horizontal"><?php echo JText::_('K2_TWEET'); ?></a> 
+                        <a href="https://twitter.com/share?text=SpoudaZO.gr&url=http://www.spoudazo.gr" class="twt_btn" data-count="horizontal"><?php echo JText::_('K2_TWEET'); ?></a> 
                     </div>
 
                     <div class="itemFacebookButton"> 
                       
-                      <div class="fb-like" data-send="true" data-layout="button_count"> </div>
+                      <div class="fb-like" data-href="https://www.facebook.com/spoudazo.gr" data-send="true" data-layout="button_count"> </div>
                     </div>
                     
                     <div class="itemGooglePlusOneButton">
-                      <div class="g-plusone" data-size="medium"></div>
+                      <div class="g-plusone" data-href="https://www.spoudazo.gr/" data-size="medium"></div>
                       
                       <script type="text/javascript">
                         window.___gcfg = {lang: 'en'};
