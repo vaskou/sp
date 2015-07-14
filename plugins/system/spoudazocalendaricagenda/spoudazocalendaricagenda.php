@@ -68,8 +68,9 @@ if (!class_exists('plgSystemSpoudazocalendaricagenda')) {
 				return;
 			}
 	
-			//Get k2 Tools module params
 			$mod_iccalendar=JModuleHelper::getModule('mod_iccalendar','Ημερολόγιο Events');
+
+			
 			$params=json_decode($mod_iccalendar->params,true);
 
 			//Get the current menu by Itemid
