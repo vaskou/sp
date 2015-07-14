@@ -720,5 +720,9 @@ li.sp-events-item-info-category a:hover{
 .k2TagCloudBlock a:hover{
   border: 1px solid #eb1e00;
   background: #ffffff;
-  color: #eb1e00;
+  color: #eb1e00!important;
 }
+
+/* iCagenda -------------------------------*/
+#icagenda+div{display:none;}
+#icagenda+div+div{display:none;}
