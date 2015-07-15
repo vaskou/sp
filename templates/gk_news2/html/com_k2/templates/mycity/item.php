@@ -271,7 +271,7 @@ if(
 				<?php endif; ?>
 
 				<?php if($this->item->params->get('itemRelatedAuthor')): ?>
-				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo $item->author->name; ?></a></div>
+				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author); ?></a></div>
 				<?php endif; ?>
 
 				
@@ -304,7 +304,7 @@ if(
                     <?php if($params->get('itemAuthorLatest') && empty($this->item->created_by_alias) && isset($this->authorLatestItems)): ?>
                         <div>
                               <?php if($params->get('itemAuthorLatest') && empty($this->item->created_by_alias) && isset($this->authorLatestItems)): ?>
-                              <h3><?php echo JText::_('K2_LATEST_FROM'); ?> <?php echo $this->item->author->name; ?></h3>
+                              <h3><?php echo JText::_('K2_LATEST_FROM'); ?> <?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author); ?></h3>
                               <ul>
                                         <?php foreach($this->authorLatestItems as $key=>$item): ?>
                                         <li> <a href="<?php echo $item->link ?>"><?php echo $item->title; ?></a> </li>
