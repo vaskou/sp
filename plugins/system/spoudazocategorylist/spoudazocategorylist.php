@@ -67,7 +67,14 @@ if (!class_exists('plgSystemSpoudazocategorylist')) {
 					$category = $categories[0];
 
 					if($category){
+						
 						$params ['root_id'] = $category;
+						
+						if( $category != $app->input->get('id','','string') ){
+									
+							$mod_k2_tools ->position='';
+						}
+
 					}
 				}
 			
@@ -92,6 +99,11 @@ if (!class_exists('plgSystemSpoudazocategorylist')) {
 					if($category){
 						
 						$params ['root_id'] = $category;
+						
+						if( $category != $app->input->get('id','','string') ){
+									
+							$mod_k2_tools ->position='';
+						}
 					}
 				}
 			
