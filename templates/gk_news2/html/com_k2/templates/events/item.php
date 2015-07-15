@@ -322,7 +322,7 @@ if(
 				<?php endif; ?>
 
 				<?php if($this->item->params->get('itemRelatedAuthor')): ?>
-				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author);; ?></a></div>
+				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author); ?></a></div>
 				<?php endif; ?>
 
 				

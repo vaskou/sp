@@ -491,9 +491,9 @@ overflow:hidden;
 margin-left: 0;
 }
 
-/* News -------------------------------------------------------------------------------------------------*/
+/* Category Items -------------------------------------------------------------------------------------------------*/
 
-.sp-news-item .itemImageBlock{
+.sp-category-item .itemImageBlock{
 	width: 30%;
 	float: left;
 	margin: 0 0 15px;
@@ -501,57 +501,57 @@ margin-left: 0;
 	box-sizing: border-box;
 	height:150px;
 }
-.sp-news-item .itemImage{
+.sp-category-item .itemImage{
 	height:100%;
 }
-.sp-news-item .itemImageBlock .itemImage img{
+.sp-category-item .itemImageBlock .itemImage img{
 	height:100% !important;
 }
-.sp-news-item .sp-news-item-content{
+.sp-category-item .sp-category-item-content{
 	width:70%;
 	float:left;
 	margin: 0 0 15px
 }
-.sp-news-item .sp-news-item-content header{
+.sp-category-item .sp-category-item-content header{
 	clear:none;
 	margin-bottom:10px !important;
 }
 
-.sp-news-item .sp-news-item-content header h2{
+.sp-category-item .sp-category-item-content header h2{
 	font-size:18px;
 }
 
-.sp-news-item .sp-news-item-content .itemBody{
+.sp-category-item .sp-category-item-content .itemBody{
 	margin-bottom:5px;
 	font-size:12px;
 	float:none;
 }
 
-.sp-news-item .sp-news-item-content .catItemReadMore{
+.sp-category-item .sp-category-item-content .catItemReadMore{
 	font-size:12px;
 }
 
-.sp-news-item-info{
+.sp-category-item-info{
 	clear:both;
 }
-.sp-news-item-info-category span{
+.sp-category-item-info-category span{
 	display:none;
 }
-li.sp-news-item-info-category a,
-li.sp-news-item-info-category a:hover{
+li.sp-category-item-info-category a,
+li.sp-category-item-info-category a:hover{
 	color: #fff !important;
 	background: #eb1e00;
 	padding: 5px 10px;
 }
 
-.sp-news-item-info .k2TagCloudBlock span{
+.sp-category-item-info .k2TagCloudBlock span{
 	display:none;
 }
-.sp-news-item-info .k2TagCloudBlock a:hover{
+.sp-category-item-info .k2TagCloudBlock a:hover{
 	color:#eb1e00 !important;
 }
 @media (max-width:480px){
-.sp-news-item .itemImageBlock{
+.sp-category-item .itemImageBlock{
 	width: auto;
 	float: none;
 	margin: 0 0 15px;
@@ -559,86 +559,24 @@ li.sp-news-item-info-category a:hover{
 	box-sizing: border-box;
 	height:auto;
 }
-.sp-news-item .sp-news-item-content{
+.sp-category-item .sp-category-item-content{
 	width:auto;
 	float:none;
 	margin: 0 0 15px
 }
 }
-/* Events -------------------------------------------------------------------------------------------------*/
 
-.sp-events-item .itemImageBlock{
-	width: 30%;
-	float: left;
-	margin: 0 0 15px;
-	padding-right: 10px !important;
-	box-sizing: border-box;
-	height:150px;
+/* Bussiness -------------------------------------------------------------------------------------------------*/
+.business .itemImageBlock{
+	max-width:100px;
+	float:right;
 }
-.sp-events-item .itemImage{
-	height:100%;
+@media (max-width:640px){
+.business .itemImageBlock{
+	padding-top:18px;
 }
-.sp-events-item .itemImageBlock .itemImage img{
-	height:100% !important;
-}
-.sp-events-item .sp-events-item-content{
-	width:70%;
-	float:left;
-	margin: 0 0 15px
-}
-.sp-events-item .sp-events-item-content header{
-	clear:none;
-	margin-bottom:10px !important;
 }
 
-.sp-events-item .sp-events-item-content header h2{
-	font-size:18px;
-}
-
-.sp-events-item .sp-events-item-content .itemBody{
-	margin-bottom:5px;
-	font-size:12px;
-	float:none;
-}
-
-.sp-events-item .sp-events-item-content .catItemReadMore{
-	font-size:12px;
-}
-
-.sp-events-item-info{
-	clear:both;
-}
-.sp-events-item-info-category span{
-	display:none;
-}
-li.sp-events-item-info-category a,
-li.sp-events-item-info-category a:hover{
-	color: #fff !important;
-	background: #eb1e00;
-	padding: 5px 10px;
-}
-
-.sp-events-item-info .k2TagCloudBlock span{
-	display:none;
-}
-.sp-events-item-info .k2TagCloudBlock a:hover{
-	color:#eb1e00 !important;
-}
-@media (max-width:480px){
-.sp-events-item .itemImageBlock{
-	width: auto;
-	float: none;
-	margin: 0 0 15px;
-	padding-right: 0px !important;
-	box-sizing: border-box;
-	height:auto;
-}
-.sp-events-item .sp-events-item-content{
-	width:auto;
-	float:none;
-	margin: 0 0 15px
-}
-}
 /* Side Menu -------------------------------------------------------------------------------------------------*/
 
 .sp-city-sidemenu .item-less,

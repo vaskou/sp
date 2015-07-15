@@ -66,6 +66,20 @@ if(
          	)
          ): ?>
          <header>
+            <?php if($params->get('itemImage') && !empty($this->item->image)): ?>
+              <div class="itemImageBlock"> 
+                <?php if($params->get('itemFeaturedNotice') && $this->item->featured): ?>
+                <sup><?php echo JText::_('K2_FEATURED'); ?></sup>
+                <?php endif; ?>
+                <a class="itemImage modal" rel="{handler: 'image'}" href="<?php echo $this->item->imageXLarge; ?>" title="<?php echo JText::_('K2_CLICK_TO_PREVIEW_IMAGE'); ?>"> <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" /> </a>
+                <?php if($params->get('itemImageMainCredits') && !empty($this->item->image_credits)): ?>
+                <span class="itemImageCredits"><?php echo $this->item->image_credits; ?></span>
+                <?php endif; ?>
+                <?php if($params->get('itemImageMainCaption') && !empty($this->item->image_caption)): ?>
+                <span class="itemImageCaption"><?php echo $this->item->image_caption; ?></span>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
                    <?php if(isset($this->item->editLink)): ?>
                    <a class="itemEditLink modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->item->editLink; ?>"><?php echo JText::_('K2_EDIT_ITEM'); ?></a>
                    <?php endif; ?>
@@ -114,22 +128,7 @@ if(
          
           <div class="itemBody<?php if($aside_exists): ?> gkHasAside<?php endif; ?>"> 
           		<?php echo $this->item->event->BeforeDisplayContent; ?> 
-          		<?php echo $this->item->event->K2BeforeDisplayContent; ?>
-                    
-                    <?php if($params->get('itemImage') && !empty($this->item->image)): ?>
-                    <div class="itemImageBlock"> 
-                    <?php if($params->get('itemFeaturedNotice') && $this->item->featured): ?>
-                    <sup><?php echo JText::_('K2_FEATURED'); ?></sup>
-                    <?php endif; ?>
-                    <a class="itemImage modal" rel="{handler: 'image'}" href="<?php echo $this->item->imageXLarge; ?>" title="<?php echo JText::_('K2_CLICK_TO_PREVIEW_IMAGE'); ?>"> <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" /> </a>
-                              <?php if($params->get('itemImageMainCredits') && !empty($this->item->image_credits)): ?>
-                              <span class="itemImageCredits"><?php echo $this->item->image_credits; ?></span>
-                              <?php endif; ?>
-                              <?php if($params->get('itemImageMainCaption') && !empty($this->item->image_caption)): ?>
-                              <span class="itemImageCaption"><?php echo $this->item->image_caption; ?></span>
-                              <?php endif; ?>
-                    </div>
-                    <?php endif; ?>  
+          		<?php echo $this->item->event->K2BeforeDisplayContent; ?> 
                     
                     <?php echo $this->item->event->AfterDisplayTitle; ?> 
                     <?php echo $this->item->event->K2AfterDisplayTitle; ?>
@@ -155,7 +154,7 @@ if(
 									  <?php if($extraField->type == 'header'): ?>
 									  <h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
 									  <?php else: ?>
-											<?php if($extraField->alias != 'iframeurl'): ?>
+											<?php if($extraField->alias != 'iframeurl' && strpos($extraField->alias,'address_')===false && strpos($extraField->alias,'telephone_')===false): ?>
 												 <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
 											<?php endif; ?>
 											<?php if($extraField->alias == 'iframeurl'): ?>
@@ -165,10 +164,32 @@ if(
 											<?php if($extraField->alias == 'address'): ?>
 												 <?php $addressField = $extraField ;?>
 											<?php endif; ?>
+                      <?php
+                          if(strpos($extraField->alias,'address_')!==false){
+                            $addresses[]=$extraField;
+                          }
+                          if(strpos($extraField->alias,'telephone_')!==false){
+                            $telephones[]=$extraField;
+                          }
+                      ?>
 										<?php endif; ?>
 							</li>
 							<?php endif; ?>
 							<?php endforeach; ?>
+              <?php if($addresses):?>
+                <?php foreach($addresses as $key=>$address): ?>
+                    <li class="type<?php echo ucfirst($address->type); ?> group<?php echo $address->group; ?> alias-<?php echo $address->alias; ?>">
+                      <span class="itemExtraFieldsLabel"><?php echo $address->name; ?>:</span> <span class="itemExtraFieldsValue">
+                        <a href="#<?php echo $address->alias; ?>" class="modal"><?php echo $address->value; ?></a>
+                      </span>
+                    </li>
+                    <li class="type<?php echo ucfirst($telephones[$key]->type); ?> group<?php echo $telephones[$key]->group; ?> alias-<?php echo $telephones[$key]->alias; ?>">
+                      <span class="itemExtraFieldsLabel"><?php echo $telephones[$key]->name; ?>:</span> <span class="itemExtraFieldsValue">
+                        <?php echo $telephones[$key]->value; ?>
+                      </span>
+                    </li>
+                <?php endforeach; ?>
+              <?php endif; ?>
 							</ul>
                     </div>
                     <?php endif; ?>
@@ -201,6 +222,23 @@ if(
 						</iframe>
 					</div>
 					<?php endif;?>
+          
+          <?php if($addresses):?>
+            <?php foreach($addresses as $key=>$address): ?>
+              <?php if ($address && trim ( $address->value )!='' ) : ?>
+              <div style="display:none;">
+      					<div class="address_field embed-container" id="<?php echo $address->alias; ?>">
+      						<iframe
+      						  width="600"
+      						  height="450"
+      						  frameborder="0" style="border:0"
+      						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGMxeMcTmXMoV-ck4otVAY88TmnvvRxrI&q=<?php echo trim ( $address->value );?>">
+      						</iframe>
+      					</div>
+              </div>
+    					<?php endif;?>
+            <?php endforeach; ?>
+          <?php endif;?>
 					
 					
 					<?php if ($iframeurlField) : ?>
@@ -271,7 +309,7 @@ if(
 				<?php endif; ?>
 
 				<?php if($this->item->params->get('itemRelatedAuthor')): ?>
-				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo $item->author->name; ?></a></div>
+				<div class="itemRelAuthor"><?php echo JText::_("K2_BY"); ?> <a rel="author" href="<?php echo $item->author->link; ?>"><?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author); ?></a></div>
 				<?php endif; ?>
 
 				
@@ -304,7 +342,7 @@ if(
                     <?php if($params->get('itemAuthorLatest') && empty($this->item->created_by_alias) && isset($this->authorLatestItems)): ?>
                         <div>
                               <?php if($params->get('itemAuthorLatest') && empty($this->item->created_by_alias) && isset($this->authorLatestItems)): ?>
-                              <h3><?php echo JText::_('K2_LATEST_FROM'); ?> <?php echo $this->item->author->name; ?></h3>
+                              <h3><?php echo JText::_('K2_LATEST_FROM'); ?> <?php echo SpoudazoLibrary::getCustomAuthorName($this->item->author); ?></h3>
                               <ul>
                                         <?php foreach($this->authorLatestItems as $key=>$item): ?>
                                         <li> <a href="<?php echo $item->link ?>"><?php echo $item->title; ?></a> </li>
