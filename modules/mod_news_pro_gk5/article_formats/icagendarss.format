@@ -1,0 +1,18 @@
+<div class="sp-slideshow">
+	<a class="sp-image-link" href="{URL}">
+		<img class="sp-image" src="{IMAGE_SRC}" alt="{TITLE}" style="">
+	</a>
+	<div class="sp-caption">
+		<h4 class="sp-title">
+			<a class="sp-truncate" href="{URL}" title="{TITLE}">{TITLE}</a>
+		</h4>
+		<div class="sp-description">
+			{TEXT}
+
+		</div>		
+		<div class="sp-meta">
+			<a class="sp-category" href="{CATEGORY_URL}">{CATEGORY}</a>
+
+		</div>
+	</div>
+</div>

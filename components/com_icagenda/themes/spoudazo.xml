@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<install method="icthemes" type="component" version="2.5.0">
+
+	<name>Spoudazo - iCagenda Theme</name>
+	<creationDate>2015-06-29</creationDate>
+	<version>3.5.6</version>
+	<author>Lyr!C</author>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorWebsite>www.Jooml!C.com</authorWebsite>
+	<authorUrl>http://www.joomlic.com</authorUrl>
+	<copyright>Copyright (c)2012-2015 Jooml!C. All Rights Reserved</copyright>
+	<license>GNU/GPLv3 or later</license>
+	<description>Spoudazo theme pack for iCagenda (component + module)</description>
+
+	<administration>
+	</administration>
+	<files folder="site">
+		<folder>spoudazo</folder>
+		<filename>spoudazo.xml</filename>
+	</files>
+
+	<themeUpdate>http://www.joomlic.com/icupdate/themes</themeUpdate>
+</install>
