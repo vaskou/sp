@@ -71,7 +71,7 @@ if (!class_exists('plgSystemspoudazoredirects')) {
 			$task = $jinput->get('task');
 			$id = $jinput->get('id');
 			
-			if($option!='com_k2' || $view!='itemlist'){
+			if($option!='com_icagenda' && ($option!='com_k2' || $view!='itemlist')){
 				return;
 			}
 			
@@ -93,29 +93,39 @@ if (!class_exists('plgSystemspoudazoredirects')) {
 			
 			$menuCategories=$menuItem->params->get('categories');
 			
-			if(!isset($menuCategories)){
-				return;
-			}
-			
 			if( $user->get('guest') && $cookie->get('spoudazoCityID')!='' ){
 				$userCity=$cookie->get('spoudazoCityID');
 			}else{
 				$userCity=SpoudazoLibrary::getUserSelectedCity($userID);
 			}
 			
-			foreach($menuCategories as $menuCategory){
-				$category = JTable::getInstance('K2Category', 'Table');
-				$category->load($menuCategory);
-				if($category->parent==$userCity){
-					$catID=$category->id;
-					//$link=str_replace('&amp;', '&', urldecode(JRoute::_(K2HelperRoute::getCategoryRoute($category->id.':'.urlencode($category->alias)))));
-					$menu_redirected=$app->getMenu('site',array())->getItems(
-						array('link','parent_id'),
-						array('index.php?option=com_k2&view=itemlist&layout=category&task=category&id='.$category->id,$jinput->get('Itemid')),
-						true
-					);
-					$new_Itemid=$menu_redirected->id;
-					$link=str_replace('&amp;', '&', urldecode(JRoute::_('index.php?option=com_k2&view=itemlist&task=category&id='.$category->id.':'.urlencode($category->alias).'&Itemid='.$new_Itemid)));
+			if(!isset($menuCategories)){
+				
+				$menuItems = $menu->getItems(array('link','parent_id'),array('index.php?option=com_icagenda&view=list',$menuItem->id));
+				foreach($menuItems as $mItem){
+					$mItemCityID = $mItem->params->get('k2_city_id');
+					if($mItemCityID == $userCity){
+						$catID=$mItem->id;
+						$link=str_replace('&amp;','&',urldecode(JRoute::_('index.php?option=com_icagenda&view=list&Itemid='.$mItem->id)));
+					}
+				}
+				
+			}else{
+				
+				foreach($menuCategories as $menuCategory){
+					$category = JTable::getInstance('K2Category', 'Table');
+					$category->load($menuCategory);
+					if($category->parent==$userCity){
+						$catID=$category->id;
+						//$link=str_replace('&amp;', '&', urldecode(JRoute::_(K2HelperRoute::getCategoryRoute($category->id.':'.urlencode($category->alias)))));
+						$menu_redirected=$app->getMenu('site',array())->getItems(
+							array('link','parent_id'),
+							array('index.php?option=com_k2&view=itemlist&layout=category&task=category&id='.$category->id,$jinput->get('Itemid')),
+							true
+						);
+						$new_Itemid=$menu_redirected->id;
+						$link=str_replace('&amp;', '&', urldecode(JRoute::_('index.php?option=com_k2&view=itemlist&task=category&id='.$category->id.':'.urlencode($category->alias).'&Itemid='.$new_Itemid)));
+					}
 				}
 			}
 			

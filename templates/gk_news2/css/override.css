@@ -628,7 +628,7 @@ li.sp-category-item-info-category a:hover{
 /* Popup width -------------------------------*/
 @media (max-width: 1000px) { 
 #sbox-window, #sbox-window iframe {
-	width: auto !important;
+	width: 100% !important;
 	box-sizing:border-box;
 }
 #sbox-window{

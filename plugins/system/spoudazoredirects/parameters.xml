@@ -6,6 +6,7 @@
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
 				</field>
+				<field name="k2_city_id" type="text" label="City ID of K2 Category" description="" default="0"/>
 			</fieldset>
 		</fields>
 </form>
