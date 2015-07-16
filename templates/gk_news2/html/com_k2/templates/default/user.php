@@ -27,7 +27,7 @@ $user = JFactory::getUser();
             <?php endif; ?>
             <div class="itemAuthorDetails">
                 <?php if ($this->params->get('userName')): ?>
-                <h3 class="itemAuthorName"><?php echo $this->user->name; ?></h3>
+                <h3 class="itemAuthorName"><?php echo SpoudazoLibrary::getCustomAuthorName($this->user); ?></h3>
                 <?php endif; ?>
                 <?php if ($this->params->get('userDescription') && isset($this->user->profile->description)): ?>
                 <?php echo $this->user->profile->description; ?>
@@ -49,14 +49,14 @@ $user = JFactory::getUser();
             <div class="itemListRow gkListCols1">
                 <div class="itemContainer">
                     <div class="itemsContainerWrap">
-                        <article class="itemView sp-news-item <?php if(!$item->published || ($item->publish_up != $this->nullDate && $item->publish_up > $this->now) || ($item->publish_down != $this->nullDate && $item->publish_down < $this->now)) echo ' itemViewUnpublished'; ?><?php echo ($item->featured) ? ' itemIsFeatured' : ''; ?> clearfix"> <?php echo $item->event->BeforeDisplay; ?> <?php echo $item->event->K2BeforeDisplay; ?>
+                        <article class="itemView sp-category-item <?php if(!$item->published || ($item->publish_up != $this->nullDate && $item->publish_up > $this->now) || ($item->publish_down != $this->nullDate && $item->publish_down < $this->now)) echo ' itemViewUnpublished'; ?><?php echo ($item->featured) ? ' itemIsFeatured' : ''; ?> clearfix"> <?php echo $item->event->BeforeDisplay; ?> <?php echo $item->event->K2BeforeDisplay; ?>
                             <div class="itemBlock">
                                 <?php if($this->params->get('userItemImage') && !empty($item->imageGeneric)): ?>
                                 <div class="itemImageBlock"> <a class="itemImage" href="<?php echo $item->link; ?>" title="<?php if(!empty($item->image_caption)) echo K2HelperUtilities::cleanHtml($item->image_caption); else echo K2HelperUtilities::cleanHtml($item->title); ?>"> <img src="<?php echo $item->imageGeneric; ?>" alt="<?php if(!empty($item->image_caption)) echo K2HelperUtilities::cleanHtml($item->image_caption); else echo K2HelperUtilities::cleanHtml($item->title); ?>" style="width:<?php echo $this->params->get('itemImageGeneric'); ?>px; height:auto;" /> </a> </div>
                                 <?php else:?>
                                 <div class="itemImageBlock"> <a class="itemImage" href="<?php echo $item->link; ?>" title="<?php echo K2HelperUtilities::cleanHtml($item->title); ?>"> <img src="<?php echo JRoute::_('images/noimage-180x150.png'); ?>" alt="<?php echo K2HelperUtilities::cleanHtml($item->title); ?>" style="width:<?php echo $item->imageWidth; ?>px; height:auto;" /> </a> </div>
                                 <?php endif; ?>
-                                <div class="sp-news-item-content">
+                                <div class="sp-category-item-content">
                                     <header>
                                         <?php if($this->params->get('userItemTitle')): ?>
                                         <h2>
@@ -83,7 +83,7 @@ $user = JFactory::getUser();
                                     <div class="catItemReadMore"> <a class="k2ReadMore" href="<?php echo $this->item->link; ?>"> <?php echo JText::_('K2_READ_MORE'); ?> </a> </div>
                                     <?php endif; ?>
                                 </div>
-                                <div class="sp-news-item-info">
+                                <div class="sp-category-item-info">
                                     <?php if($this->params->get('userItemCategory') || ($this->params->get('userItemCommentsAnchor') && ( ($this->params->get('comments') == '2' && !$this->user->guest) || ($this->params->get('comments') == '1')))) : ?>
                                     <ul>
                                         <?php if($this->params->get('userItemDateCreated')): ?>
