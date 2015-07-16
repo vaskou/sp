@@ -123,11 +123,6 @@ ul.sigFreeClassic li.sigFreeThumb {
     overflow:hidden!important;
 }
 
-.gkHighlighterWrapper {
-//  width: 355px;
-
-}
-
 /* gkUpdates ------------------------------------------------------------------------------------------------------*/
 #gkUpdates {
     padding:0 5px;
@@ -494,7 +489,7 @@ margin-left: 0;
 /* Category Items -------------------------------------------------------------------------------------------------*/
 
 .sp-category-item .itemImageBlock{
-	width: 30%;
+	width: 30% !important;
 	float: left;
 	margin: 0 0 15px;
 	padding-right: 10px !important;
@@ -502,10 +497,13 @@ margin-left: 0;
 	height:150px;
 }
 .sp-category-item .itemImage{
-	height:100%;
+	border:1px solid #ddd;
 }
 .sp-category-item .itemImageBlock .itemImage img{
-	height:100% !important;
+	height:auto !important;
+    max-height:100%;
+    margin:auto;
+    width:auto !important;
 }
 .sp-category-item .sp-category-item-content{
 	width:70%;
@@ -647,13 +645,11 @@ li.sp-category-item-info-category a:hover{
 .contact h3{display:none;}
 
 /*Tag cloud ----------------------------------------*/
-.k2TagCloudBlock {
-    text-align:center;
-}
+
 .k2TagCloudBlock a {
   border: 1px solid #eb1e00;
   background: #eb1e00;
-  color: #ffffff!important;
+  color: #ffffff !important;
 }
 .k2TagCloudBlock a:hover{
   border: 1px solid #eb1e00;
@@ -661,6 +657,35 @@ li.sp-category-item-info-category a:hover{
   color: #eb1e00!important;
 }
 
+.itemList .k2TagCloudBlock li a{
+    color: #ffffff !important;
+}
+
 /* iCagenda -------------------------------*/
 #icagenda+div{display:none;}
 #icagenda+div+div{display:none;}
+
+/*Author name -----------------------------*/
+.itemAuthorContent h3,
+.itemAuthorData h3{
+    text-transform: none;  
+}
+
+/* Business Grid Images --------------------------------*/
+.itemList .sp-business-item .itemImageBlock{
+    display:table;
+    height:150px;
+    width:100%;
+}
+.sp-business-item .itemImageBlock > a{
+    display:table-cell;
+    vertical-align:middle;
+    height:150px;
+}
+
+.sp-business-item .itemImageBlock .itemImage img{
+	height:auto !important;
+    max-height:100%;
+    margin:auto;
+    width:auto !important;
+}

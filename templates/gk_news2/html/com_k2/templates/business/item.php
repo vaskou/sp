@@ -152,7 +152,7 @@ if(
 							<?php if($extraField->value != ''): ?>
 							<li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?> alias-<?php echo $extraField->alias; ?>">
 									  <?php if($extraField->type == 'header'): ?>
-									  <h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
+									       <h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
 									  <?php else: ?>
 											<?php if($extraField->alias != 'iframeurl' && strpos($extraField->alias,'address_')===false && strpos($extraField->alias,'telephone_')===false): ?>
 												 <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
@@ -164,32 +164,21 @@ if(
 											<?php if($extraField->alias == 'address'): ?>
 												 <?php $addressField = $extraField ;?>
 											<?php endif; ?>
-                      <?php
-                          if(strpos($extraField->alias,'address_')!==false){
-                            $addresses[]=$extraField;
-                          }
-                          if(strpos($extraField->alias,'telephone_')!==false){
-                            $telephones[]=$extraField;
-                          }
-                      ?>
+                                            <?php if(strpos($extraField->alias,'address_')!==false): ?>
+                                                <?php $addresses[] = $extraField;?>
+                                                <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue">
+                                                    <a href="#<?php echo $extraField->alias; ?>" class="modal"><?php echo $extraField->value; ?></a>
+                                                </span>
+                                            <?php endif; ?>    
+                                            <?php if(strpos($extraField->alias,'telephone_')!==false): ?>
+                                                <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue">
+                                                    <?php echo $extraField->value; ?>
+                                                </span>
+                                             <?php endif; ?>
 										<?php endif; ?>
 							</li>
 							<?php endif; ?>
 							<?php endforeach; ?>
-              <?php if($addresses):?>
-                <?php foreach($addresses as $key=>$address): ?>
-                    <li class="type<?php echo ucfirst($address->type); ?> group<?php echo $address->group; ?> alias-<?php echo $address->alias; ?>">
-                      <span class="itemExtraFieldsLabel"><?php echo $address->name; ?>:</span> <span class="itemExtraFieldsValue">
-                        <a href="#<?php echo $address->alias; ?>" class="modal"><?php echo $address->value; ?></a>
-                      </span>
-                    </li>
-                    <li class="type<?php echo ucfirst($telephones[$key]->type); ?> group<?php echo $telephones[$key]->group; ?> alias-<?php echo $telephones[$key]->alias; ?>">
-                      <span class="itemExtraFieldsLabel"><?php echo $telephones[$key]->name; ?>:</span> <span class="itemExtraFieldsValue">
-                        <?php echo $telephones[$key]->value; ?>
-                      </span>
-                    </li>
-                <?php endforeach; ?>
-              <?php endif; ?>
 							</ul>
                     </div>
                     <?php endif; ?>

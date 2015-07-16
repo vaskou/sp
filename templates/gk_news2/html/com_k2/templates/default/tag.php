@@ -23,14 +23,14 @@ defined('_JEXEC') or die;
             <div class="itemListRow gkListCols1">
                 <div class="itemContainer">
                     <div class="itemsContainerWrap">
-                        <article class="itemView sp-news-item">
+                        <article class="itemView sp-category-item">
                             <div class="itemBlock">
                                 <?php if($item->params->get('genericItemImage') && !empty($item->imageGeneric)): ?>
                                 	<div class="itemImageBlock"> <a class="itemImage" href="<?php echo $item->link; ?>" title="<?php if(!empty($item->image_caption)) echo $item->image_caption; else echo $item->title; ?>"> <img src="<?php echo $item->imageGeneric; ?>" alt="<?php if(!empty($item->image_caption)) echo $item->image_caption; else echo $item->title; ?>" style="width:<?php echo $item->params->get('itemImageGeneric'); ?>px; height:auto;" /> </a> </div>
                                 <?php else:?>
                                 	<div class="itemImageBlock"> <a class="itemImage" href="<?php echo $item->link; ?>" title="<?php echo K2HelperUtilities::cleanHtml($item->title); ?>"> <img src="<?php echo JRoute::_('images/noimage-180x150.png'); ?>" alt="<?php echo K2HelperUtilities::cleanHtml($item->title); ?>" style="width:<?php echo $item->imageWidth; ?>px; height:auto;" /> </a> </div>
                                 <?php endif; ?>
-                                <div class="sp-news-item-content">
+                                <div class="sp-category-item-content">
                                     <header>
                                         <?php if($item->params->get('genericItemTitle')): ?>
                                         <h2>
@@ -71,7 +71,7 @@ defined('_JEXEC') or die;
                                     <div class="catItemReadMore"> <a class="k2ReadMore" href="<?php echo $this->item->link; ?>"> <?php echo JText::_('K2_READ_MORE'); ?> </a> </div>
                                     <?php endif; ?>
                                 </div>
-                                <div class="sp-news-item-info">
+                                <div class="sp-category-item-info">
                                     <?php if($item->params->get('genericItemCategory')): ?>
                                     <ul>
                                         <?php if($item->params->get('genericItemDateCreated')): ?>
@@ -80,7 +80,7 @@ defined('_JEXEC') or die;
                                         </li>
                                         <?php endif; ?>
                                         <?php if($item->params->get('genericItemCategory')) : ?>
-                                        <li class="sp-news-item-info-category"><span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span> <a href="<?php echo $item->category->link; ?>"><?php echo $item->category->name; ?></a></li>
+                                        <li class="sp-category-item-info-category"><span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span> <a href="<?php echo $item->category->link; ?>"><?php echo $item->category->name; ?></a></li>
                                         <?php endif; ?>
                                         <?php if($item->params->get('catItemAuthor')): ?>
                                         <li>
