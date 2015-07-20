@@ -292,6 +292,9 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
    	<?php $this->layout->loadBlock('social'); ?>
    		
 	<jdoc:include type="modules" name="debug" />
+	<div style="display:none!important">
+	<jdoc:include type="modules" name="visitorscounter" />
+	</div>
 	<script>
 	jQuery(document).ready(function(){
    		// Target your .container, .wrapper, .post, etc.
