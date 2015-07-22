@@ -1,18 +1,19 @@
-<div class="sp-slideshow">
-	<a class="sp-image-link" href="{URL}">
-		<img class="sp-image" src="{IMAGE_SRC}" alt="{TITLE}" style="">
+<div class="sp-icagendarss">
+	<a class="image-link" href="{URL}">
+		<img class="image" src="{IMAGE_SRC}" alt="{TITLE}" style="">
 	</a>
-	<div class="sp-caption">
-		<h4 class="sp-title">
-			<a class="sp-truncate" href="{URL}" title="{TITLE}">{TITLE}</a>
-		</h4>
-		<div class="sp-description">
-			{TEXT}
+	<div class="caption">
 
-		</div>		
-		<div class="sp-meta">
-			<a class="sp-category" href="{CATEGORY_URL}">{CATEGORY}</a>
+
+	
+		<div class="meta">
+			<a class="category" href="{CATEGORY_URL}">{CATEGORY}</a>
+			<span class="date"> {DATE}</span> 
 
 		</div>
+		<h4 class="title">
+			<a class="truncate" href="{URL}" title="{TITLE}">{TITLE}</a>
+		</h4>
+
 	</div>
 </div>

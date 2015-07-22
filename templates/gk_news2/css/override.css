@@ -333,6 +333,60 @@ overflow:hidden;
   margin-top: 0;
 }
 
+/*GK NEWS PRO iCagenda RSS-------------------------------------------------------------------------*/
+.box.icagendarss-module .nspArt {
+    padding:0!important;
+}
+.sp-icagendarss {
+    position:relative;
+}
+.sp-icagendarss .image {
+    height:auto!important;
+    width:100%;
+    max-width:100%;
+    display:block;
+}
+.sp-icagendarss .image-link {
+
+}
+.sp-icagendarss .caption {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  bottom: 0;
+
+  
+  
+  
+    }
+.sp-icagendarss .caption .title{
+      background-color:rgba(0, 0, 0, 0.5);
+padding:5px;
+}
+.sp-icagendarss .caption .title a{
+          color:#fff;
+
+}
+
+.sp-icagendarss .caption>.meta>.category {
+  background: #d81010;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 14px;
+    padding: 4px 5px;
+
+  height:100%;
+}
+.sp-icagendarss .caption>.meta{
+    height:24px;
+}
+.sp-icagendarss .caption>.meta>.date {
+          color:#fff;
+font-size:18px;
+line-height:24px;
+text-shadow: 2px 2px #000000;
+
+}
 /*social icons ----------------------------------------------------------------------------------------*/
 
 #gkSocial{
