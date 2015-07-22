@@ -59,7 +59,10 @@ class plgK2K2_facebookcomments extends K2Plugin {
 					}(document, "script", "facebook-jssdk"));
 				</script>
 	
-				<div class="fb-comments" data-href="'.JURI::current().'" data-numposts="5"></div>';
+				<div class="fb-comments" data-href="'.JURI::current().'" data-numposts="5"></div>
+				
+				<p class="sp-comments-disclaimer">Το ​SpoudaZO.gr δεν φέρει ουδεμία ευθύνη εκ του νόμου​, ​για τα επώνυμα ή αν​ών​υμα σχ​όλ​ια που φιλοξενεί​ μέσω της πλατφόρμας του facebook​. Σε περίπτωση που θεωρεί​ς πως θίγεσαι​,​για οποιονδήποτε λόγο,από κάποιο εξ αυτών, ​μπορείς να το αναφέρεις (report) απευθείας στο facebook πατώντας το "x" δεξιά και μετά "αναφορά" καθώς και να ​επικοινωνήσ​εις ​μαζί μας, μέσω της φόρμας επικοινωνίας​,​ ώστε να ​προβούμε στις αρμόζουσες ενέργειες.</p>
+				';
 		else: 
 			$output = '';
 		endif;
