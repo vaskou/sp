@@ -45,24 +45,25 @@ class icagendaViewList extends JViewLegacy
 
 		foreach ($items as $item)
 		{
-			if ( !in_array('', $filter_category) && !in_array('0', $filter_category)
-				&& in_array($item->catid, $filter_category)
-				|| in_array('', $filter_category)
-				|| in_array('0', $filter_category)
-				)
+			if ( ($filter_category!='' && in_array($item->catid, $filter_category) ) || $filter_category == '')
 			{
 				// Load individual item creator class.
 				$feeditem				= new JFeedItem;
-				$feeditem->title		= $item->title . ' (' . $item->category . ')'.$item->next;
-				$feeditem->link			= JROUTE::_('index.php?option=com_icagenda&view=list&layout=event&Itemid='. (int) $Itemid .'&id='. (int) $item->id . ':' . $item->alias);
+				$feeditem->title		= $item->title ;
+				
+				$linkItemid = ($Itemid) ? $linkItemid : 1101 ;
+				
+				$feeditem->link			= JRoute::_('index.php?option=com_icagenda&view=list&layout=event&Itemid='. (int) $linkItemid .'&id='. (int) $item->id  ,true, null );
 				$feeditem->image		= icagendaThumb::sizeMedium($item->image);
-				$feeditem->description	= '<img src="' . $feeditem->image . '" alt="" style="margin: 5px; float: left;">' . $item->desc.'<span>'.$item->next.'</span>';
-				$feeditem->date			= $item->next;
+				$feeditem->description	= '<img src="' . $feeditem->image . '" alt="" style="margin: 5px; float: left;">' . $item->desc;
+				$feeditem->date			= new JDate($item->next.'-6 hours');
 				$feeditem->category		= $item->category;
 
 				// Loads item information into RSS array
 				$document->addItem($feeditem);
+		
 			}
 		}
+		
 	}
 }
