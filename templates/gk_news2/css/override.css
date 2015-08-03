@@ -214,7 +214,9 @@ div.banneritem img{
 .nspArt.nspCol1{
    padding:0!important; 
 }    
-
+.nspArts{
+    padding:0 !important;
+}
 
 .sp-slideshow .sp-image{
     vertical-align: top;
@@ -313,7 +315,10 @@ overflow:hidden;
     text-align:center;
     width:22px;
 }
-
+.sp-slideshow-module .nspNext:before, 
+.sp-slideshow-module .nspPrev:before {
+    border:none;
+}
 .sp-grid-module hr.separator{
     display:none;
 }
@@ -734,6 +739,9 @@ li.sp-category-item-info-category a:hover{
 .business .itemImageBlock{
 	max-width:100px;
 	float:right;
+}
+.business .alias-maketa .itemExtraFieldsLabel{
+	display:none;
 }
 @media (max-width:640px){
 .business .itemImageBlock{

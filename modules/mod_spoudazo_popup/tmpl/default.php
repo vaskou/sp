@@ -94,27 +94,10 @@ JHtml::script(JURI::base().'modules/mod_spoudazo_popup/assets/js/form_script.js'
                 </div>
                 
                 <div class="itemSocialSharing">
-                    <div class="itemTwitterButton">
-                        <a href="https://twitter.com/share?text=SpoudaZO.gr&url=http://www.spoudazo.gr" class="twt_btn" data-count="horizontal"><?php echo JText::_('K2_TWEET'); ?></a> 
-                    </div>
+                   
 
                     <div class="itemFacebookButton"> 
-                      
-                      <div class="fb-like" data-href="https://www.facebook.com/spoudazo.gr" data-send="true" data-layout="button_count"> </div>
-                    </div>
-                    
-                    <div class="itemGooglePlusOneButton">
-                      <div class="g-plusone" data-href="https://www.spoudazo.gr/" data-size="medium"></div>
-                      
-                      <script type="text/javascript">
-                        window.___gcfg = {lang: 'en'};
-                      
-                        (function() {
-                          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                          po.src = 'https://apis.google.com/js/platform.js';
-                          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                        })();
-                      </script>
+                      <div class="fb-page" data-href="https://www.facebook.com/SpoudaZo.gr" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/SpoudaZo.gr"><a href="https://www.facebook.com/SpoudaZo.gr">SpoudaZo.gr</a></blockquote></div></div>
                     </div>
                 </div>
             </div>
