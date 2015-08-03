@@ -740,3 +740,20 @@ li.sp-category-item-info-category a:hover{
 	padding-top:18px;
 }
 }
+
+/*Breezing Forms*/
+.bfFormDiv p{margin:0;}
+.bfQuickMode label {display:none;}
+#bfLabel374{display:block;}
+.bfQuickMode .bfPageIntro {
+    padding: 0px;
+    margin: 0px;
+}
+.bfQuickMode section.bfElemWrap {
+    padding: 0px;
+    margin: 0px;
+    background: none!important;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
