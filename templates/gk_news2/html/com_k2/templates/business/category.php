@@ -89,11 +89,14 @@ defined('_JEXEC') or die;
 		<?php if((isset($this->leading) || isset($this->primary) || isset($this->secondary) || isset($this->links)) && (count($this->leading) || count($this->primary) || count($this->secondary) || count($this->links))): ?>
 		<div class="itemList">
 				<?php if(isset($this->leading) && count($this->leading)): ?>
-				<?php if( count($this->leading) % $this->params->get('num_leading_columns') != 0):  ?>
-					<?php $cwidth = 'width:' . (number_format(count($this->leading)/$this->params->get('num_leading_columns')*100, 1)-0.1) . '%;'; ?>
-					<?php $cborder = 'border-right: 1px solid #e5e5e5;'; ?>
-				<?php endif?>
-				<div id="itemListLeading" style="<?php echo $cwidth . $cborder ?>">	
+				<?php 
+						$item_count = count($this->leading);
+						$column_num = $this->params->get('num_leading_columns');
+						if( $item_count % $column_num != 0 && $item_count < $column_num){
+							$cwidth = 'width:' . ( number_format( $item_count / $column_num * 100, 1) - 0.1) . '%;';
+						}
+				?>
+				<div id="itemListLeading" style="<?php echo $cwidth  ?>">	
 						<?php foreach($this->leading as $key=>$item): ?>
 						<?php if(($key)%($this->params->get('num_leading_columns'))==0 || $this->params->get('num_leading_columns') == 1): ?>
 						<div class="itemListRow gkListCols<?php echo $this->params->get('num_leading_columns'); ?>">
@@ -109,7 +112,8 @@ defined('_JEXEC') or die;
 						<div class="itemContainer<?php echo $lastContainer; ?>"<?php echo (count($this->leading)==1) ? '' : ' style="width:'.(number_format(100/$this->params->get('num_leading_columns'), 1)-0.1).'%;"'; ?>>
 								<?php
 						// Load category_item.php by default
-						echo '<div class="itemsContainerWrap">';
+						$last_border= ( $item_count % $column_num != 0 && ($key+1) == $item_count )?'border-right: 1px solid #e5e5e5;':'';
+						echo '<div class="itemsContainerWrap" style="'.$last_border.'">';
 						
 						$this->item=$item;
 						echo $this->loadTemplate('item');

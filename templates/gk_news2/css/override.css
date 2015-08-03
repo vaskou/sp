@@ -218,7 +218,7 @@ div.banneritem img{
 
 .sp-slideshow .sp-image{
     vertical-align: top;
-
+	width:100%;
 }
 .sp-slideshow{
     position:relative;
@@ -236,7 +236,7 @@ div.banneritem img{
 
 .sp-slideshow a.sp-image-link{
     background:#000000;
-    display:inline-block;
+    display:block;
 }
 
 .sp-slideshow:hover img{
@@ -550,9 +550,6 @@ margin-left: 0;
 	box-sizing: border-box;
 	height:150px;
 }
-.sp-category-item .itemImage{
-	border:1px solid #ddd;
-}
 .sp-category-item .itemImageBlock .itemImage img{
 	height:auto !important;
     max-height:100%;
@@ -615,17 +612,6 @@ li.sp-category-item-info-category a:hover{
 	width:auto;
 	float:none;
 	margin: 0 0 15px
-}
-}
-
-/* Bussiness -------------------------------------------------------------------------------------------------*/
-.business .itemImageBlock{
-	max-width:100px;
-	float:right;
-}
-@media (max-width:640px){
-.business .itemImageBlock{
-	padding-top:18px;
 }
 }
 
@@ -742,4 +728,15 @@ li.sp-category-item-info-category a:hover{
     max-height:100%;
     margin:auto;
     width:auto !important;
+}
+
+/* Business Item -----------------------------------------*/
+.business .itemImageBlock{
+	max-width:100px;
+	float:right;
+}
+@media (max-width:640px){
+.business .itemImageBlock{
+	padding-top:18px;
+}
 }
