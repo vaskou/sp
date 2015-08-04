@@ -46,10 +46,10 @@ $returnURL=$jinput->get('returnURL');
 				</li>
 				<?php if(isset($this->K2Menu['add'])): ?>
 				<li>
-					<a class="modal socialConnectAddLink" rel="{handler:'iframe',size:{x:990,y:550}}" href="submit-your-article"><?php echo JText::_('JW_SC_ADD_NEW_ITEM'); ?></a>
+					<a class="modal socialConnectAddLink" rel="{handler:'iframe',size:{x:990,y:550}}" href="index.php?option=com_k2&view=item&layout=itemform&task=add&Itemid=1084"><?php echo JText::_('JW_SC_ADD_NEW_ITEM'); ?></a>
 				</li>
 				<li>
-					<a class="modal socialConnectAddLink" rel="{handler:'iframe',size:{x:990,y:550}}" href="submit-your-event">Προσθήκη νέου Event</a>
+					<a class="socialConnectAddLink" target="_blank" rel="{handler:'iframe',size:{x:990,y:550}}" href="index.php?option=com_icagenda&view=submit&Itemid=1085">Προσθήκη νέου Event</a>
 				</li>
 				<?php endif; ?>
 				<li class="sp-hidden">
