@@ -45,7 +45,7 @@ if (!class_exists('plgSystemSpoudazoicagendarss')) {
 				return;
 			}
 	
-			$mod_icagendarss=JModuleHelper::getModule('mod_news_pro_gk5','ICagenda RSS');
+			$mod_icagendarss=JModuleHelper::getModule('mod_news_pro_gk5','Events');
 
 			$app = JFactory::getApplication();
 

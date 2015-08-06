@@ -122,6 +122,7 @@
                   <position>tab10</position>
                    
 		          <!-- CUSTOM SPOUDAZO Module Positions -->
+                  <position>bottom3before</position>
                   <position>sentonileft</position>
                   <position>sentoniright</position>
                   <position>helloguest</position>

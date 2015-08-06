@@ -249,9 +249,9 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
     </div>
     
     <?php if($this->API->modules('bottom3before')) : ?>
-    <section id="gkBottom3" class="gkPage">
+    <section id="gkBottom3Before" class="gkPage">
     	<div class="gkCols6<?php if($this->API->modules('bottom3before') > 1) : ?> gkNoMargin<?php endif; ?>">
-    		<jdoc:include type="modules" name="bottom3before" style="<?php echo $this->module_styles['bottom3before']; ?>" modnum="<?php echo $this->API->modules('bottom3before'); ?>" />
+    		<jdoc:include type="modules" name="bottom3before" style="<?php echo $this->module_styles['bottom3']; ?>" modnum="<?php echo $this->API->modules('bottom3before'); ?>" />
     	</div>
     </section>
     <?php endif; ?>

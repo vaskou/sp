@@ -283,7 +283,7 @@ overflow:hidden;
 
 .sp-slideshow-module .nspTopInterface{
     top:0;
-    z-index:200;
+    z-index:50;
     margin:2%;
     left:0;
 
@@ -337,6 +337,8 @@ overflow:hidden;
 .nspList li > .nspImageWrapper + div > h4 {
   margin-top: 0;
 }
+/*iCagenda -------------------------------------------------------------------------*/
+.ic-box img{width:100%}
 
 /*GK NEWS PRO iCagenda RSS-------------------------------------------------------------------------*/
 .box.icagendarss-module .nspArt {
