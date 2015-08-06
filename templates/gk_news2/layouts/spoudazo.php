@@ -293,7 +293,7 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
      <?php if($this->API->modules('weather')) : ?>
     <section id="gkWeather" class="gkPage">
     	<div class="gkCols6<?php if($this->API->modules('weather') > 1) : ?> gkNoMargin<?php endif; ?>">
-    		<jdoc:include type="modules" name="weather" style="<?php echo $this->module_styles['weather']; ?>" modnum="<?php echo $this->API->modules('weather'); ?>" />
+    		<jdoc:include type="modules" name="weather" style="<?php echo $this->module_styles['bottom5']; ?>" modnum="<?php echo $this->API->modules('weather'); ?>" />
     	</div>
     </section>
     <?php endif; ?>
