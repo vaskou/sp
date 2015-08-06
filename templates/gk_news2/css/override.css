@@ -778,3 +778,7 @@ li.sp-category-item-info-category a:hover{
 #gkBottom4 > div {
     border: 0;
 }
+
+/*Visitors Counter*/
+.sp-visible-counter, .sp-visible-counter h3{width:50%;float:right;}
+.sp-visible-counter table{width:100%!important;}
