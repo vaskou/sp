@@ -15,12 +15,7 @@ if(!$city){ ?>
 <div class="spoudazo_popup_newsletter">
 	
     <form action="<?php echo JRoute::_('index.php'); ?>" method="post" id="select-city-form" class="form-inline form-validate" >
-        <div class="sp-popup-button">
-            <button type="submit" class="validate button"><?php echo JText::_('MOD_SPOUDAZO_POPUP_SUBMIT'); ?></button>
-        </div>
-        <div class="sp-email">
-            <input type="email" required="required" class="validate-email" id="email" name="email" placeholder="E-mail" />
-        </div>
+    	<h3 class="sp-popup-newsletter-title"><?php echo JText::_('MOD_SPOUDAZO_POPUP_NEWSLETTER_TITLE');?></h3>
         <div class="sp-city">
             <select id="city" name="cityID" required="required">
                 <?php foreach($cities as $city){?>
@@ -28,12 +23,20 @@ if(!$city){ ?>
                 <?php } ?>
             </select>
         </div>
+        <div class="sp-email">
+            <input type="email" required="required" class="validate-email" id="email" name="email" placeholder="E-mail" />
+        </div>
+        <div class="sp-popup-button">
+            <button type="submit" class="validate button"><?php echo JText::_('MOD_SPOUDAZO_POPUP_SUBMIT'); ?></button>
+        </div>
+        
+        
         <input type="hidden" name="option" value="com_spoudazo" />
         <input type="hidden" name="task" value="spoudazo.addSubscriber" />
         <input type="hidden" name="return_url" value="<?php echo base64_encode(JFactory::getURI()->toString()); ?>" />
         <input type="hidden" name="redirect" value="true" />
     </form>
-    <h3 class="sp-popup-newsletter-title"><?php echo JText::_('MOD_SPOUDAZO_POPUP_NEWSLETTER_TITLE');?></h3>
+    
 </div>
 
 <?php 
