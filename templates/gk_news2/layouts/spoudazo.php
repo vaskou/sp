@@ -136,7 +136,16 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
 		</div>
 	
 		<div id="gkPageContent">	
-	    	<div>
+	
+			<?php if($this->API->modules('slideshowtop')) : ?>
+				<section id="gkTop1" class="gkCols3<?php if($this->API->modules('slideshowtop') > 1) : ?> gkNoMargin<?php endif; ?>">
+					<div>
+						<jdoc:include type="modules" name="slideshowtop" style="<?php echo $this->module_styles['top1']; ?>"  modnum="<?php echo $this->API->modules('slideshowtop'); ?>" modcol="3" />
+					</div>
+				</section>
+			<?php endif; ?>
+					
+		    	<div>
 		    	<section id="gkContent">
 					<?php if($this->API->modules('banner_left or banner_right')) : ?>
 					<div id="gkBanners" class="gkEqualColumns">
@@ -214,21 +223,7 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
 					</div>
 		    	</section>
 		    	
-		    	<?php if($this->API->modules('bottom1')) : ?>
-		    	<section id="gkBottom1">
-		    		<div class="gkCols6 gkEqualColumns<?php if($this->API->modules('bottom1') > 1) : ?> gkNoMargin<?php endif; ?>">
-		    			<jdoc:include type="modules" name="bottom1" style="<?php echo $this->module_styles['bottom1']; ?>" modnum="<?php echo $this->API->modules('bottom1'); ?>" />
-		    		</div>
-		    	</section>
-		    	<?php endif; ?>
-		    	
-		    	<?php if($this->API->modules('bottom2')) : ?>
-		    	<section id="gkBottom2">
-		    		<div class="gkCols6 gkEqualColumns<?php if($this->API->modules('bottom2') > 1) : ?> gkNoMargin<?php endif; ?>">
-		    			<jdoc:include type="modules" name="bottom2" style="<?php echo $this->module_styles['bottom2']; ?>" modnum="<?php echo $this->API->modules('bottom2'); ?>" />
-		    		</div>
-		    	</section>
-		    	<?php endif; ?>
+
 			</div>
 			<?php if($this->API->modules('sidebar_right')) : ?>
 			<aside id="gkSidebarRight">
@@ -247,7 +242,22 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
 		</aside>
 		<?php endif; ?>
     </div>
-    
+	<?php if($this->API->modules('bottom1')) : ?>
+	<section id="gkBottom1" class="gkPage">
+		<div class="gkCols6 gkEqualColumns<?php if($this->API->modules('bottom1') > 1) : ?> gkNoMargin<?php endif; ?>">
+			<jdoc:include type="modules" name="bottom1" style="<?php echo $this->module_styles['bottom1']; ?>" modnum="<?php echo $this->API->modules('bottom1'); ?>" />
+		</div>
+	</section>
+	<?php endif; ?>
+	
+	<?php if($this->API->modules('bottom2')) : ?>
+	<section id="gkBottom2" class="gkPage">
+		<div class="gkCols6 gkEqualColumns<?php if($this->API->modules('bottom2') > 1) : ?> gkNoMargin<?php endif; ?>">
+			<jdoc:include type="modules" name="bottom2" style="<?php echo $this->module_styles['bottom2']; ?>" modnum="<?php echo $this->API->modules('bottom2'); ?>" />
+		</div>
+	</section>
+	<?php endif; ?>
+		    	    
     <?php if($this->API->modules('bottom3before')) : ?>
     <section id="gkBottom3Before" class="gkPage">
     	<div class="gkCols6<?php if($this->API->modules('bottom3before') > 1) : ?> gkNoMargin<?php endif; ?>">

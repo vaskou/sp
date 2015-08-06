@@ -767,3 +767,13 @@ li.sp-category-item-info-category a:hover{
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
 }
+
+/*sidebar fix*/
+#gkSidebarRight{min-height:0!important}
+#gkBottom1, #gkBottom2 {
+    border-top: 0;
+}
+#gkBottom3 > div, 
+#gkBottom4 > div {
+    border: 0;
+}

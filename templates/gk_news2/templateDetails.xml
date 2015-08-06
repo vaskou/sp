@@ -121,8 +121,9 @@
                   <position>tab9</position>
                   <position>tab10</position>
                    
-		          <!-- CUSTOM SPOUDAZO Module Positions -->
-                  <position>bottom3before</position>
+		  <!-- CUSTOM SPOUDAZO Module Positions -->
+                  <position>slideshowtop</position>                  
+		  <position>bottom3before</position>
                   <position>sentonileft</position>
                   <position>sentoniright</position>
                   <position>helloguest</position>
