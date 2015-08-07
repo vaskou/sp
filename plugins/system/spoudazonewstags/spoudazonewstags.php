@@ -89,5 +89,21 @@ if (!class_exists('plgSystemSpoudazonewstags')) {
 
 			
 		}
+		
+		public function onAfterRoute()
+		{
+			//If we have Itemid of Homepage, change it to News itemid, becasue we are in tag list view
+			$app = JFactory::getApplication();
+			if( $app->input->get('task','','string')=='tag' )
+			{
+				//Check if we are in Homepage Itemid
+				$Itemid = $app->input->get('Itemid','0','int');
+				
+				if($Itemid==435){
+					$app->input->set('Itemid',991);
+				}
+				
+			}
+		}
     }
 }
