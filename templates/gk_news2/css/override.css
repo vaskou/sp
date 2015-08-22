@@ -779,11 +779,46 @@ li.sp-category-item-info-category a:hover{
     border: 0;
 }
 
-/*Visitors Counter*/
+/*Visitors Counter
 .sp-visible-counter, .sp-visible-counter h3{width:50%;float:right;}
 .sp-visible-counter table{width:100%!important;}
+*/
+
+@media (min-width:1000px){
+
+.box.sp-visible-counter {
+    width: 30%!important;
+    float: right!important;
+    margin-right: 18%!important;
+}
+div.mvc_people {
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.mvc_peopleTable.sp-visible-counter{width:100%!important}
+}
+@media (min-width:768px) and (max-width:1000px){
+
+.box.sp-visible-counter {
+    width: 33%!important;
+    float: right!important;
+    margin-right: 23%;
+}
+div.mvc_people {
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.mvc_peopleTable.sp-visible-counter{width:100%!important}
+}
 
 /*gkupdates*/
 #gkUpdates {
     display: block!important;
+}
+
+#gkBreadcrumb .breadcrumbs > ul > li {
+
+    line-height: 1.5;
 }
