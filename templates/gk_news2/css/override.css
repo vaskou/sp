@@ -532,7 +532,7 @@ text-shadow: 2px 2px #000000;
 .categories-list-tree .level0>li>a{
     
     color:#fff;
-    background:#eb1e00;
+    background:#E31E25;
     padding:5px 10px;
 }
 
@@ -596,7 +596,7 @@ margin-left: 0;
 li.sp-category-item-info-category a,
 li.sp-category-item-info-category a:hover{
 	color: #fff !important;
-	background: #eb1e00;
+	background: #E31E25;
 	padding: 5px 10px;
 }
 
@@ -604,7 +604,7 @@ li.sp-category-item-info-category a:hover{
 	display:none;
 }
 .sp-category-item-info .k2TagCloudBlock a:hover{
-	color:#eb1e00 !important;
+	color:#E31E25 !important;
 }
 @media (max-width:480px){
 .sp-category-item .itemImageBlock{
@@ -645,7 +645,7 @@ li.sp-category-item-info-category a:hover{
 	padding:10px;
 }
 .sp-city-sidemenu .active{
-	background:#eb1e00;	
+	background:#E31E25;	
 }
 .sp-city-sidemenu .active a{
 	color:#fff;	
@@ -695,14 +695,14 @@ li.sp-category-item-info-category a:hover{
 /*Tag cloud ----------------------------------------*/
 
 .k2TagCloudBlock a {
-  border: 1px solid #eb1e00;
-  background: #eb1e00;
+  border: 1px solid #E31E25;
+  background: #E31E25;
   color: #ffffff !important;
 }
 .k2TagCloudBlock a:hover{
-  border: 1px solid #eb1e00;
+  border: 1px solid #E31E25;
   background: #ffffff;
-  color: #eb1e00!important;
+  color: #E31E25!important;
 }
 
 .itemList .k2TagCloudBlock li a{
@@ -791,6 +791,16 @@ li.sp-category-item-info-category a:hover{
     float: right!important;
     margin-right: 18%!important;
 }
+
+.box.sp-visible-counter h3{
+    
+    text-align:center;
+    color:#fff;
+    background:#E31E25;
+    line-height:200%;
+    }
+
+
 div.mvc_people {
     margin: 0px!important;
     padding: 0px!important;
