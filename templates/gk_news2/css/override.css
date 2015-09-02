@@ -10,6 +10,17 @@
 
 /* Here you can include your override CSS styles */
 
+body,
+.nspArt p.nspText,
+.nspLinks ul li p,
+.nspLinks ul li h4 a,
+.nspLinks ul li h4 a,
+#gkBottom3 .box a, #gkBottom4 .box a
+{
+    color: #000;
+}
+
+
 /*General --------------------------------------------------------------------------------------*/
 
 .sp-nomargin,
