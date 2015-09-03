@@ -15,9 +15,18 @@ body,
 .nspLinks ul li p,
 .nspLinks ul li h4 a,
 .nspLinks ul li h4 a,
-#gkBottom3 .box a, #gkBottom4 .box a
+#gkBottom3 .box a, #gkBottom4 .box a,
+.gkMenu > ul li div.childcontent a
 {
     color: #000;
+}
+
+.nspLinks ul li h4 {
+    font-size: 18px;
+}
+
+.gkNspPM-VideoList h3 {
+    font-size: 18px;
 }
 
 
