@@ -198,6 +198,11 @@ div.banneritem img{
   border-left: 0;
 }
 
+/*Right sidebar banners*/
+#gkSidebarRight .bannergroup>.banneritem {margin:14px 0;}
+#gkSidebarLeft .box, #gkSidebarRight .box {
+    border-top: 0 solid #e5e5e5;
+}
 
 /* Sentoni ------------------------------------------------------------------------------------------------------*/
 .sentoni {
