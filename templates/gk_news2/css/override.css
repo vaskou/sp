@@ -540,8 +540,7 @@ text-shadow: 2px 2px #000000;
 /* Business -------------------------------------------------------------------------------------------------*/
 .categories-list-tree .level0>li{
     width:33%;
-    display:inline-block;
-    float:left;
+    display:inline-table;
     
 }
 
