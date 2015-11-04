@@ -153,7 +153,7 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
 		<div id="gkPageContent">
 		
 			<?php if($this->API->modules('banner_left or banner_right')) : ?>
-			<div id="gkBanners" class="gkEqualColumns">
+			<section id="gkBanners" class="gkEqualColumns">
 				<?php if($this->API->modules('banner_left')) : ?>	
 				<div id="gkBannerLeft">
 			    	<jdoc:include type="modules" name="banner_left" style="<?php echo $this->module_styles['banner_left']; ?>"  modnum="<?php echo $this->API->modules('banner_left'); ?>" />
@@ -165,7 +165,7 @@ $tpl_page_suffix = $page_suffix_output != '' ? ' class="'.$page_suffix_output.'"
 					<jdoc:include type="modules" name="banner_right" style="<?php echo $this->module_styles['banner_right']; ?>"  modnum="<?php echo $this->API->modules('banner_right'); ?>" />
 				</div>
 				<?php endif; ?>    
-			</div>
+			</section>
 			<?php endif; ?>
 	
 			<?php if($this->API->modules('slideshowtop')) : ?>
