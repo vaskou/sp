@@ -8,7 +8,7 @@
 		</h4>
 		<div class="sp-meta">
 			<a class="sp-category" href="{CATEGORY_URL}">{CATEGORY}</a>
-			<span class="sp-date">{DATE}</span> 
+			<!--<span class="sp-date">{DATE}</span>--> 
 		</div>
 	</div>
 </div>

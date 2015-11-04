@@ -10,6 +10,26 @@
 
 /* Here you can include your override CSS styles */
 
+body,
+.nspArt p.nspText,
+.nspLinks ul li p,
+.nspLinks ul li h4 a,
+.nspLinks ul li h4 a,
+#gkBottom3 .box a, #gkBottom4 .box a,
+.gkMenu > ul li div.childcontent a
+{
+    color: #000;
+}
+
+.nspLinks ul li h4 {
+    font-size: 18px;
+}
+
+.gkNspPM-VideoList h3 {
+    font-size: 18px;
+}
+
+
 /*General --------------------------------------------------------------------------------------*/
 
 .sp-nomargin,
@@ -178,6 +198,11 @@ div.banneritem img{
   border-left: 0;
 }
 
+/*Right sidebar banners*/
+#gkSidebarRight .bannergroup>.banneritem {margin:14px 0;}
+#gkSidebarLeft .box, #gkSidebarRight .box {
+    border-top: 0 solid #e5e5e5;
+}
 
 /* Sentoni ------------------------------------------------------------------------------------------------------*/
 .sentoni {
@@ -515,8 +540,7 @@ text-shadow: 2px 2px #000000;
 /* Business -------------------------------------------------------------------------------------------------*/
 .categories-list-tree .level0>li{
     width:33%;
-    display:inline-block;
-    float:left;
+    display:inline-table;
     
 }
 
@@ -532,7 +556,7 @@ text-shadow: 2px 2px #000000;
 .categories-list-tree .level0>li>a{
     
     color:#fff;
-    background:#eb1e00;
+    background:#E31E25;
     padding:5px 10px;
 }
 
@@ -596,7 +620,7 @@ margin-left: 0;
 li.sp-category-item-info-category a,
 li.sp-category-item-info-category a:hover{
 	color: #fff !important;
-	background: #eb1e00;
+	background: #E31E25;
 	padding: 5px 10px;
 }
 
@@ -604,7 +628,7 @@ li.sp-category-item-info-category a:hover{
 	display:none;
 }
 .sp-category-item-info .k2TagCloudBlock a:hover{
-	color:#eb1e00 !important;
+	color:#E31E25 !important;
 }
 @media (max-width:480px){
 .sp-category-item .itemImageBlock{
@@ -645,7 +669,7 @@ li.sp-category-item-info-category a:hover{
 	padding:10px;
 }
 .sp-city-sidemenu .active{
-	background:#eb1e00;	
+	background:#E31E25;	
 }
 .sp-city-sidemenu .active a{
 	color:#fff;	
@@ -695,14 +719,14 @@ li.sp-category-item-info-category a:hover{
 /*Tag cloud ----------------------------------------*/
 
 .k2TagCloudBlock a {
-  border: 1px solid #eb1e00;
-  background: #eb1e00;
+  border: 1px solid #E31E25;
+  background: #E31E25;
   color: #ffffff !important;
 }
 .k2TagCloudBlock a:hover{
-  border: 1px solid #eb1e00;
+  border: 1px solid #E31E25;
   background: #ffffff;
-  color: #eb1e00!important;
+  color: #E31E25!important;
 }
 
 .itemList .k2TagCloudBlock li a{
@@ -779,11 +803,56 @@ li.sp-category-item-info-category a:hover{
     border: 0;
 }
 
-/*Visitors Counter*/
+/*Visitors Counter
 .sp-visible-counter, .sp-visible-counter h3{width:50%;float:right;}
 .sp-visible-counter table{width:100%!important;}
+*/
+
+@media (min-width:1000px){
+
+.box.sp-visible-counter {
+    width: 30%!important;
+    float: right!important;
+    margin-right: 18%!important;
+}
+
+.box.sp-visible-counter h3{
+    
+    text-align:center;
+    color:#fff;
+    background:#E31E25;
+    line-height:200%;
+    }
+
+
+div.mvc_people {
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.mvc_peopleTable.sp-visible-counter{width:100%!important}
+}
+@media (min-width:768px) and (max-width:1000px){
+
+.box.sp-visible-counter {
+    width: 33%!important;
+    float: right!important;
+    margin-right: 23%;
+}
+div.mvc_people {
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.mvc_peopleTable.sp-visible-counter{width:100%!important}
+}
 
 /*gkupdates*/
 #gkUpdates {
     display: block!important;
+}
+
+#gkBreadcrumb .breadcrumbs > ul > li {
+
+    line-height: 1.5;
 }
