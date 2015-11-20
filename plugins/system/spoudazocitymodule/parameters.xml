@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+		<fields name="params">
+			<fieldset name="citymodule" label="Spoudazo City Assignment" addfieldpath="/plugins/system/spoudazocitymodule/fields">
+				<field name="selectedcities" type="selectcities" label="Select Cities" />
+			</fieldset>
+		</fields>
+</form>
