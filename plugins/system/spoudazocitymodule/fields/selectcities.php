@@ -12,7 +12,7 @@ class JFormFieldSelectCities extends JFormField {
 	
 	public function getOptions(){
 		$db = JFactory::getDBO();
-		$query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' AND `published`='1' ORDER BY name";
+		$query="SELECT id,name FROM #__k2_categories WHERE `plugins` LIKE '%\"citySelectisCity\":\"1\"%' AND `published`='1' UNION SELECT 'none' as id,'None' as name ORDER BY name";
 		$db->setQuery($query);
 		$results = $db->loadObjectList();
 		
@@ -41,7 +41,10 @@ class JFormFieldSelectCities extends JFormField {
 		$selected_cities = $this->value;
 		
 		$app = JFactory::getApplication();
-		$app->setUserState('com_spoudazo.city_list', $selected_cities);
+		
+		$jinput = $app->input;
+		
+		$module_id=$jinput->get('id', '');
 		
 		// Build the checkbox field output.
 		$html[] = '<ul>';
@@ -76,21 +79,28 @@ class JFormFieldSelectCities extends JFormField {
 								data: { 
 									option: "com_spoudazo",
 									task: "spoudazo.addCityToUseState",
+									module_id: ' . $module_id . ',
 									id: el.value,
 									value: value
-								},
-								success:function(response){
-									try{
-										response=jQuery.parseJSON(response);
-										console.log(response);
-										
-									}catch(e){
-										//console.log(e);
-									}
 								}
 							});
-							
 						}
+						
+						jQuery(function($){
+							$(".include_exclude").change(function(){
+								var value = $(this).val();
+								jQuery.ajax({
+									method: "POST",
+									url: "' . JRoute::_('index.php') . '",
+									data: { 
+										option: "com_spoudazo",
+										task: "spoudazo.includeExclude",
+										module_id: ' . $module_id . ',
+										value: value
+									}
+								});
+							});
+						});
 				   </script>';
 
 		return implode($html);

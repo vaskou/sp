@@ -2,6 +2,11 @@
 <form>
 		<fields name="params">
 			<fieldset name="citymodule" label="Spoudazo City Assignment" addfieldpath="/plugins/system/spoudazocitymodule/fields">
+				<field name="include_exclude" type="list" label="Select Mode" description="" class="include_exclude">
+					<option value="disabled">Disabled</option>
+					<option value="include">Include</option>
+					<option value="exclude">Exclude</option>
+				</field>
 				<field name="selectedcities" type="selectcities" label="Select Cities" />
 			</fieldset>
 		</fields>

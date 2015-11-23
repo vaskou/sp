@@ -39,20 +39,25 @@ if (!class_exists('plgSystemspoudazocitymodule')) {
 			if ($form->getName()=='com_modules.module' && $data->module == 'mod_banners') {
 				JForm::addFormPath($this->_pluginPath);
 				$form->loadFile('parameters', false);
+
+				$app = JFactory::getApplication();
+				$app->setUserState('com_spoudazo.'.$data->id.'.city_list', $data->params['selectedcities']);
+				$app->setUserState('com_spoudazo.'.$data->id.'.include_exclude', $data->params['include_exclude']);
 			}
 		}
 		
 		function onExtensionBeforeSave($context, $table, $isNew)
 		{
 			$app = JFactory::getApplication();
-			$city_list['selectedcities']=$app->getUserState('com_spoudazo.city_list');
-			var_dump($city_list);
+			
+			$city_list['selectedcities']=$app->getUserState('com_spoudazo.'.$table->id.'.city_list');
 			$params = json_decode($table->params, true);
-			var_dump($params);
 			$params = array_merge($params, $city_list);
-			var_dump($params);
+
+			$include_exclude = $app->getUserState('com_spoudazo.'.$table->id.'.include_exclude');
+			$params['include_exclude'] = (!empty($include_exclude)) ? $include_exclude : 'disabled';
+
 			$table->params = json_encode($params);
-			$app->setUserState('com_spoudazo.city_list', array());
 		}		
 		
 		public function onAfterDispatch()
@@ -74,19 +79,28 @@ if (!class_exists('plgSystemspoudazocitymodule')) {
 				if ( $module->module == 'mod_banners' )
 				{
 					$banner_module = JModuleHelper::getModule('mod_banners',$module->title);
-					$banner_module_params = json_decode ( $module->params );
-					$banner_module_selectedcities = $banner_module_params -> selectedcities;
+					$banner_module_params = json_decode ( $module->params, true );
+					$banner_module_selectedcities = $banner_module_params['selectedcities'];
+					$banner_module_include_exclude = $banner_module_params['include_exclude'];
 					
-					$selectedCity = $app->input->cookie->get('spoudazoCityID');
+					if($banner_module_include_exclude == 'disabled'){
+						continue;
+					}
 					
-					if ( !$banner_module_selectedcities->$selectedCity )
+					$selectedCity = ( !empty($app->input->cookie->get('spoudazoCityID')) ) ? $app->input->cookie->get('spoudazoCityID') : 'none';
+					
+					if ( empty($banner_module_selectedcities[$selectedCity]) && $banner_module_include_exclude == 'include')
+					{
+						$banner_module->position= '';
+					}
+					
+					if ( !empty($banner_module_selectedcities[$selectedCity]) && $banner_module_include_exclude == 'exclude')
 					{
 						$banner_module->position= '';
 					}
 					
 				}
 			}
-	
 		}
     }
 }
