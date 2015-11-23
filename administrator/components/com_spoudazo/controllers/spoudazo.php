@@ -20,9 +20,15 @@ class SpoudazoControllerSpoudazo extends SpoudazoController {
 		
 		$city_list = (!empty($city_list)) ? $city_list : array();
 		
-		if(!empty($city_id)){
+		if( !empty($city_id) ) {
 			$city_list[$city_id]=$value;
 		}
+		
+		if ($value == '0')
+			unset ( $city_list[$city_id] );
+		
+		if ( empty ($city_list) )
+			$city_list=null;
 		
 		$city_list=$app->setUserState('com_spoudazo.city_list', $city_list);
 		

@@ -55,5 +55,38 @@ if (!class_exists('plgSystemspoudazocitymodule')) {
 			$app->setUserState('com_spoudazo.city_list', array());
 		}		
 		
+		public function onAfterDispatch()
+		{
+			$app = JFactory::getApplication();
+			
+			//If not in frontend, return
+			if(!$app->isSite()){
+				return;
+			}
+			
+			//Get all modules
+			$modules=JModuleHelper::getModuleList();
+
+			//Loop through all modules
+			foreach ( $modules as $k=> $module)
+			{
+				//Only for banner modules
+				if ( $module->module == 'mod_banners' )
+				{
+					$banner_module = JModuleHelper::getModule('mod_banners',$module->title);
+					$banner_module_params = json_decode ( $module->params );
+					$banner_module_selectedcities = $banner_module_params -> selectedcities;
+					
+					$selectedCity = $app->input->cookie->get('spoudazoCityID');
+					
+					if ( !$banner_module_selectedcities->$selectedCity )
+					{
+						$banner_module->position= '';
+					}
+					
+				}
+			}
+	
+		}
     }
 }
